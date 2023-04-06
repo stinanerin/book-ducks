@@ -2,9 +2,6 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css") layer(bootstrap);
 @layer bootstrap, special-styles;
 @layer special-styles {
-  * {
-    outline: 1px solid pink;
-  }
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
@@ -54,10 +51,10 @@
     -webkit-box-shadow: 0 0 1em 0.2em hsl(333deg, 100%, 58%);
     color: hsl(333deg, 100%, 58%);
   }
-  input:not(input[type=radio]), input:active:not(input[type=radio]), input:focus:not(input[type=radio]),
-input:-webkit-autofill:not(input[type=radio]),
-input:-webkit-autofill:focus:not(input[type=radio]),
-input:-webkit-autofill:active:not(input[type=radio]) {
+  form input:not(input[type=radio]), form input:active:not(input[type=radio]), form input:focus:not(input[type=radio]),
+form input:-webkit-autofill:not(input[type=radio]),
+form input:-webkit-autofill:focus:not(input[type=radio]),
+form input:-webkit-autofill:active:not(input[type=radio]) {
     border-radius: 50px;
     padding: 0.8rem 1.5rem;
     border: none;
@@ -65,10 +62,10 @@ input:-webkit-autofill:active:not(input[type=radio]) {
     appearance: none;
     background: linear-gradient(270deg, rgba(255, 255, 255, 0.26) 0%, rgba(249, 241, 241, 0.202) 100%), -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.66) 0%, rgba(253, 253, 253, 0) 100%);
   }
-  input:not(input[type=radio])::placeholder, input:active:not(input[type=radio])::placeholder, input:focus:not(input[type=radio])::placeholder,
-input:-webkit-autofill:not(input[type=radio])::placeholder,
-input:-webkit-autofill:focus:not(input[type=radio])::placeholder,
-input:-webkit-autofill:active:not(input[type=radio])::placeholder {
+  form input:not(input[type=radio])::placeholder, form input:active:not(input[type=radio])::placeholder, form input:focus:not(input[type=radio])::placeholder,
+form input:-webkit-autofill:not(input[type=radio])::placeholder,
+form input:-webkit-autofill:focus:not(input[type=radio])::placeholder,
+form input:-webkit-autofill:active:not(input[type=radio])::placeholder {
     font-weight: 700;
     font-family: system-ui;
     background: linear-gradient(hsl(28deg, 100%, 63%), hsl(352deg, 96%, 68%)), -webkit-linear-gradient(hsl(28deg, 100%, 63%), hsl(352deg, 96%, 68%));
@@ -77,16 +74,16 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder {
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
-  input:active, input:focus, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+  form input:active, form input:focus, form input:-webkit-autofill:focus, form input:-webkit-autofill:active {
     box-shadow: 0 0 1em 0.2em hsla(0deg, 0%, 100%, 0.491);
     -webkit-box-shadow: 0 0 1em 0.2em hsla(0deg, 0%, 100%, 0.491);
   }
-  label {
+  form label {
     font-family: "Poppins", sans-serif;
     color: hsl(0deg, 0%, 100%);
     font-weight: 500;
   }
-  .alert-danger {
+  form .alert-danger {
     background: linear-gradient(270deg, rgba(255, 255, 255, 0.26) 0%, rgba(249, 241, 241, 0.202) 100%), -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.66) 0%, rgba(253, 253, 253, 0) 100%);
     border-radius: 50px;
     border-color: hsl(0deg, 100%, 51%);
@@ -94,65 +91,72 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder {
     color: hsl(0deg, 100%, 51%);
     font-weight: 700;
   }
-  .alert-danger .fa-solid {
+  form .alert-danger .fa-solid {
     color: hsl(0deg, 100%, 51%);
     font-size: 1.1rem;
   }
-  .error {
+  form .error {
     color: hsl(0deg, 100%, 51%);
     border-color: hsl(0deg, 100%, 51%);
     -webkit-text-fill-color: hsl(0deg, 100%, 51%);
     box-shadow: 0 0 1px 0.1em hsl(0deg, 100%, 51%) inset;
     -webkit-box-shadow: 0 0 1px 0.1em hsl(0deg, 100%, 51%) inset;
   }
-  .error::-moz-placeholder {
+  form .error::-moz-placeholder {
     background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
-  .error:-ms-input-placeholder {
+  form .error:-ms-input-placeholder {
     background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
-  .error::placeholder {
+  form .error::placeholder {
     background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
-  .error:-webkit-autofill, .error:-webkit-autofill:focus, .error:-webkit-autofill:active {
+  form .error:-webkit-autofill, form .error:-webkit-autofill:focus, form .error:-webkit-autofill:active {
     color: hsl(0deg, 100%, 51%);
     border-color: hsl(0deg, 100%, 51%);
     -webkit-text-fill-color: hsl(0deg, 100%, 51%);
     box-shadow: 0 0 1px 0.1em hsl(0deg, 100%, 51%) inset;
     -webkit-box-shadow: 0 0 1px 0.1em hsl(0deg, 100%, 51%) inset;
   }
-  .error:active, .error:focus, .error:-webkit-autofill:focus, .error:-webkit-autofill:active {
+  form .error:active, form .error:focus, form .error:-webkit-autofill:focus, form .error:-webkit-autofill:active {
     box-shadow: 0 0 1em 0.2em hsl(0deg, 100%, 51%);
     -webkit-box-shadow: 0 0 1em 0.2em hsl(0deg, 100%, 51%);
   }
-  .error:active::placeholder, .error:focus::placeholder, .error:-webkit-autofill:focus::placeholder, .error:-webkit-autofill:active::placeholder {
+  form .error:active::placeholder, form .error:focus::placeholder, form .error:-webkit-autofill:focus::placeholder, form .error:-webkit-autofill:active::placeholder {
     background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
-  .form-text {
+  form .form-text {
     color: hsl(0deg, 0%, 100%);
     padding-left: 1.5rem;
+  }
+  form h2 {
+    margin-bottom: 1em;
   }
   header div i, header div p {
     font-size: 1rem;
   }
   header div img {
     width: 20px;
+  }
+  header div .logo {
+    width: 40px;
+    margin-right: 1rem;
   }
   .books-grid {
     padding-left: 0;
