@@ -54,7 +54,8 @@ const checkSession = () => {
         userNameDisplay.innerText = toUpperCaseStr(sessionStorage.getItem("user"));
         addClass([loginContainer, registerContainer], "hidden")
 
-        //( OBS! måste visa upp vår token - leg) i getProducts requesten
         //! obs behöver man tänka på att undvika så två kan vara inloggade samtidigt?
+    } else {
+        userNameDisplay.innerText = ""
     }
 }
