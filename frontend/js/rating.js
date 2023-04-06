@@ -5,6 +5,16 @@ const rating = (wrapper) => {
             const labels = [...arr].map(star => star.parentElement)
             removeClass(labels, "active");
             labels.slice(0, index + 1).forEach(star => addClass([star], "active"))
+            //todo! Add value to api
+            addRating(star.value)
         })
-    )
+        )
+    }
+    
+const addRating = async(rating) => {
+        
+    console.log(rating);
+
+    const res = await axios.post("")
+
 }
