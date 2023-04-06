@@ -57,5 +57,6 @@ const checkSession = () => {
         //! obs behöver man tänka på att undvika så två kan vara inloggade samtidigt?
     } else {
         userNameDisplay.innerText = ""
+        removeClass([registerContainer], "hidden")
     }
 }
