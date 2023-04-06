@@ -2,7 +2,7 @@ const toggleClass = (arr, aClass) => {
     arr.forEach(elem => elem.classList.toggle(aClass))
 }
 const addClass = (arr, aClass) => {
-    arr.forEach(elem => elem.classList.add(aClass))
+    arr.forEach(elem => elem.className = aClass)
 }
 const removeClass = (arr, aClass) => {
     arr.forEach(elem => elem.classList.remove(aClass))
