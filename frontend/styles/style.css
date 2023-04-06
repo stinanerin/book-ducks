@@ -174,13 +174,16 @@ form input:-webkit-autofill:active:not(input[type=radio])::placeholder {
     font-style: italic;
   }
   .books-grid .book-rating label {
-    text-shadow: 0.05rem 0.04rem hsla(0deg, 0%, 100%, 0.491);
     padding: 5px;
+    color: hsl(0deg, 0%, 100%);
   }
   .books-grid .book-rating label:before {
     content: "★";
   }
   .books-grid .book-rating input {
     display: none;
+  }
+  .books-grid .book-rating .active {
+    color: hsla(341deg, 85%, 60%, 0.91);
   }
 }/*# sourceMappingURL=style.css.map */

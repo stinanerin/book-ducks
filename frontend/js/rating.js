@@ -1,11 +1,10 @@
 const rating = (wrapper) => {
-    wrapper.querySelectorAll("input[name='rate']").forEach(star => 
+    const stars = wrapper.querySelectorAll("input[name='rate']")
+    stars.forEach((star, index, arr) => 
         star.addEventListener('click', (e) => {
-            changeRating(e.target)
+            const labels = [...arr].map(star => star.parentElement)
+            removeClass(labels, "active");
+            labels.slice(0, index + 1).forEach(star => addClass([star], "active"))
         })
-    );
-}
-
-const changeRating = (e) => {
-    console.log("hej", e);
+    )
 }

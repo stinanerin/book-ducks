@@ -15,14 +15,18 @@
     /* stars */
     .book-rating {
         label  {
-            text-shadow: 0.05rem 0.04rem $t-white;
+            // text-shadow: 0.05rem 0.04rem lighten($accent-100, 25%);
             padding: 5px;
+            color: $p-white;
             &:before {
                 content: "★";
             }
         }
         input {
             display: none;
+        }
+        .active {
+            color: $accent-100;
         }
     }
 }

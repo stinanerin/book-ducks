@@ -15,7 +15,7 @@ const fetchBooks = async() => {
             li.innerHTML  += `
                 <img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/>
                 <div class="book-rating">
-                    <label>
+                    <label class="active">
                         <input type="radio" name="rate" value="1">
                     </label>
                     <label>
