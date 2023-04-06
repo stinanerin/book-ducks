@@ -36,7 +36,6 @@ const fetchBooks = async() => {
     } catch(err) {
         console.log(err);
     }
-
 }
 
 fetchBooks()

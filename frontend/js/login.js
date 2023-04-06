@@ -51,7 +51,7 @@ const addSession = (res) => {
 // ----------------------- CHECK ONGOING USER SESSION -----------------------
 const checkSession = () => {
     if (sessionStorage.getItem("token")){
-        userNameDisplay.innerText = sessionStorage.getItem("user");
+        userNameDisplay.innerText = toUpperCaseStr(sessionStorage.getItem("user"));
         addClass([loginContainer, registerContainer], "hidden")
 
         //( OBS! måste visa upp vår token - leg) i getProducts requesten
