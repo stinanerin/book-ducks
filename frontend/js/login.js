@@ -35,12 +35,29 @@ const login = async() => {
         })
         console.log(res);
 
-        sessionStorage.setItem("token", res.data.jwt);
-        userNameDisplay.innerText = res.data.user.username;
-        
-        toggleClass([loginContainer], "hidden")
+        addSession(res)
+
+        // toggleClass([loginContainer], "hidden")
     } catch(err) {
         console.log(err);
         feedback.innerText = err;
+    }
+}
+
+// ----------------------- ADD USER TO SESSION STORAGE -----------------------
+const addSession = (res) => {
+    sessionStorage.setItem("token", res.data.jwt);
+    sessionStorage.setItem("user", res.data.user.username);
+    checkSession()
+}
+
+// ----------------------- CHECK ONGOING USER SESSION -----------------------
+const checkSession = () => {
+    if (sessionStorage.getItem("token")){
+        userNameDisplay.innerText = sessionStorage.getItem("user");
+        addClass([loginContainer, registerContainer], "hidden")
+
+        //( OBS! måste visa upp vår token - leg) i getProducts requesten
+        //! obs behöver man tänka på att undvika så två kan vara inloggade samtidigt?
     }
 }

@@ -148,6 +148,6 @@ input:-webkit-autofill:active::placeholder {
   }
   .form-text {
     color: hsl(0deg, 0%, 100%);
-    padding-left: 1rem;
+    padding-left: 1.5rem;
   }
 }/*# sourceMappingURL=style.css.map */
