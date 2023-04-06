@@ -1,0 +1,6 @@
+@mixin glow ($color: $t-white) {
+    box-shadow: 0 0 1em 0.2em $color;
+    -webkit-box-shadow: 0 0 1em 0.2em $color; 
+};
+
+

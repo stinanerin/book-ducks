@@ -5,5 +5,8 @@ layer(bootstrap);
 
 @layer special-styles {
     @import "./partials/variables";
+    @import "./partials/mixins";
+    @import "./partials/global";
+    @import "./partials/form";
     
 }

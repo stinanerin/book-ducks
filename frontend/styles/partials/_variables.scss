@@ -5,9 +5,10 @@ $body: system-ui;
 // Colors
 $p-black: hsl(0, 0%, 0%);
 $p-white: hsl(0, 0%, 100%);
+$t-white: hsla(0, 0%, 100%, 0.491);
 
-$danger-500: hsl(354, 100%, 51%);
-$danger-50: hsl(355,70%,91%);
+$danger-500: hsl(0, 100%, 51%);
+$danger-50: rgb(248, 88, 104);
 
 $radius: 0.5rem;
 $radius-max: 50px;
@@ -18,6 +19,17 @@ $md: "width >= 768px";
 $lg: "width >= 992px";
 $xl: "width >= 1200px";
 
-* {
-    background-color: $danger-50;
-}
+
+$accent-700: #cf2838;
+$accent-300: #fc6076;
+$accent-100: #f0447be8;
+
+$primary-300: #ff9a44;
+
+
+$radius: 0.5rem;
+$radius-max: 50px;
+
+$see-through-gradient: linear-gradient(270deg, rgba(255, 255, 255, 0.26) 0%, rgba(249, 241, 241, 0.202) 100%),
+    -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.66) 0%, rgba(253, 253, 253, 0) 100%);
+

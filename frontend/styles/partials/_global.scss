@@ -1,0 +1,58 @@
+html {
+    min-height: 100vh;
+}
+body {
+    background: 
+        linear-gradient(-20deg, $accent-300 0%, $primary-300 100%),
+        -webkit-linear-gradient(-20deg, $accent-300 0%, $primary-300 100%);
+}
+main {
+    padding: 0 1rem;
+}
+.main {
+    max-width: 33rem;
+    margin: auto;
+}
+i {
+    color: $p-white;
+}
+.hidden {
+    display: none;
+}
+.link {
+    text-decoration: underline;
+    color: $accent-700;
+    cursor: pointer;
+}
+// TEXT
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-family: $heading-primary;
+    color: $p-white;
+}
+body {
+    font-family: $body;
+    color: $p-white;
+    font-size: 0.8rem;
+}
+.primary-btn {
+    font-family: $heading-primary;
+    color: $p-white;
+    font-weight: 500;
+    background: radial-gradient( circle 610px at 5.2% 51.6%,  $accent-100 0%, $accent-700 97.5% );
+    border-radius: $radius-max;
+    padding: 0.8rem 1.5rem;
+    &:hover {
+        background: none;
+        @include glow($accent-100);
+        color: hsl(333, 100%, 58%);
+    }
+}
+
+header div {
+    min-width: 20%;
+    i, p {
+        font-size: 1rem;
+    }
+}

@@ -20,21 +20,113 @@
     <!-- AXIOS -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- JS -->
-    <script src="index.js" defer></script>
+    <script src="js/helper.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/login.js" defer></script>
+    <script src="js/register.js" defer></script>
     <!-- CSS -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-
-    <header>
-        <h1>Book Ducks</h1>
+    
+    <header class="d-flex justify-content-between p-4">
+        <div>
+            <h1>Book Ducks</h1>
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+            <p class="m-0 pe-2" id="userName"></p>
+            <i class="fa-regular fa-user"></i>
+        </div>
     </header>
 
     <main>
+
+        <div class="pt-5">
+            <p id="feedback" class="text-center"></p>
+            <!--! REGISTER FORM -->
+            <div id="registerWrapper">
+                <form class="container main" id="registerUser">
+                    <h2 class="text-center">Create an account</h2>
+                    <div class="row gy-3">
+                        <!-- NAME -->
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Full name</label>
+                            <input class="form-control input" id="fullName" type="text" placeholder="Enter full name" required/>
+                        </div>
+                        <!-- EMAIL -->
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email address</label>
+                            <input  class="form-control input " id="email" type="email" placeholder="Enter email" required/>
+                            <div class="form-text">We'll propably share your email with everyone else.</div>
+                        </div>
+                        <!-- PWD -->
+                        <div class="form-group">
+                            <label for="pwd" class="form-label">Password</label>
+                            <input class="form-control input" id="pwd" type="password" placeholder="Enter password" required/>
+                            <div class="form-text">Your password must be at least 6 characters long.</div>
+                        </div>
+                        <!-- ALERT PWD -->
+                        <div id="passwordAlert" class="m-0 hidden">
+                            <div class="alert alert-danger container m-0 mt-3" role="alert">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                    </div>
+                                    <div class="col">
+                                        <span id="errorMessage">The passwords do not match</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CONF. PWD -->
+                        <div class="form-group">
+                            <label for="pwdConf" class="form-label">Password confirmation</label>
+                            <input class="form-control input" id="pwdConf" type="password" placeholder="Confirm password" required/>
+                        </div>
+                        <!-- SUBMIT -->
+                        <div class="d-flex justify-content-center my-5">
+                            <button class="btn primary-btn" type="submit">Sign up</button>
+                        </div>
+                    </div>
+                </form>
+                 <!-- LINK LOGIN -->
+                 <div class="text-center pb-5">
+                    <p>Already registered? <span class="link" id="loginLink">Log in here</span></p>
+                </div>
+            </div>
+            <!--! LOGIN FORM -->
+            <div id="loginWrapper" class="hidden">
+                <form class="container main" id="loginForm">
+                    <h2 class="text-center">Sign in</h2>
+                    <div class="row gy-3 ">
+                        <!-- EMAIL -->
+                        <div class="form-group">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input class="form-control input" id="loginEmail" type="email" placeholder="Enter email" required/>
+                        </div>
+                        <!-- ALERT -->
+                        <div class="login-alert-container"></div>
+                        <!-- PWD -->
+                        <div class="form-group">
+                            <label for="loginPWD" class="form-label">Password</label>
+                            <input class="form-control input" id="loginPWD" type="password" placeholder="Enter password" required/>
+                        </div>
+                    </div>
+                    <!-- SUBMIT -->
+                    <div class="d-flex justify-content-center my-5">
+                        <button class="btn primary-btn" type="submit">Sign in</button>
+                    </div>
+                </form>
+                <!-- LINK REGISTER FORM  -->
+                <div class="text-center pb-5">
+                    <p>Not registered? <span class="link" id="registerLink">Register now</span></p>
+                </div>
+            </div>
+        </div> 
         
     </main>
-    
+
     <footer>
         
     </footer>
