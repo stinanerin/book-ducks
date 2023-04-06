@@ -1,0 +1,28 @@
+.books-grid {
+    padding-left: 0;
+    li {
+        list-style-type: none;
+        img {
+            height: 242px;
+        }
+        h3 {
+            font-weight: 100;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+    }
+
+    /* stars */
+    .book-rating {
+        label  {
+            text-shadow: 0.05rem 0.04rem $t-white;
+            padding: 5px;
+            &:before {
+                content: "★";
+            }
+        }
+        input {
+            display: none;
+        }
+    }
+}

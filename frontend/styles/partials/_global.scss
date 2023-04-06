@@ -1,3 +1,23 @@
+// * {
+//     outline: 1px solid pink;
+// }
+
+// RESET
+
+
+// TEXT
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-family: $heading-primary;
+    color: $p-white;
+}
+body {
+    font-family: $body;
+    color: $p-white;
+    font-size: 0.8rem;
+}
+
 html {
     min-height: 100vh;
 }
@@ -13,18 +33,7 @@ main {
     max-width: 33rem;
     margin: auto;
 }
-// TEXT
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
-    font-family: $heading-primary;
-    color: $p-white;
-}
-body {
-    font-family: $body;
-    color: $p-white;
-    font-size: 0.8rem;
-}
+
 i {
     color: $p-white;
 }

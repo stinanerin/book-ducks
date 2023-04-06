@@ -3,21 +3,23 @@ input, input:active, input:focus,
 input:-webkit-autofill, 
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    border-radius: $radius-max;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    -webkit-appearance: none;
-    appearance: none; 
-    background: $see-through-gradient ;
-    &::placeholder {
-        font-weight: 700;
-        font-family: $body;
-        background: linear-gradient($primary-300, $accent-300 ),
-            -webkit-linear-gradient($primary-300, $accent-300 );
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        -webkit-text-fill-color: transparent;
+    &:not(input[type="radio"]) {
+        border-radius: $radius-max;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        -webkit-appearance: none;
+        appearance: none; 
+        background: $see-through-gradient ;
+        &::placeholder {
+            font-weight: 700;
+            font-family: $body;
+            background: linear-gradient($primary-300, $accent-300 ),
+                -webkit-linear-gradient($primary-300, $accent-300 );
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
     }
 }
 input:active, input:focus, input:-webkit-autofill:focus, input:-webkit-autofill:active  {
