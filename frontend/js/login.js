@@ -34,10 +34,7 @@ const login = async() => {
             password: loginPwd.value,
         })
         console.log(res);
-
         addSession(res)
-
-        // toggleClass([loginContainer], "hidden")
     } catch(err) {
         console.log(err);
         feedback.innerText = err;

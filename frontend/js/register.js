@@ -20,6 +20,7 @@ document.querySelector("#registerUser").addEventListener("submit", (e) => {
         register()
     }
 })
+
 // ----------------------- REGISTER USER IN STRAPI -----------------------
 const register = async () => {
     console.log("register in strapi func");
@@ -35,7 +36,6 @@ const register = async () => {
             throw new Error(res.error.message);
         }
         addSession(res)
-        // toggleClass([registerContainer], "hidden")
     } catch(error) {
         console.log(error.response.data.error.message);
         feedback.innerText = error.response.data.error.message;

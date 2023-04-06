@@ -8,7 +8,7 @@ $p-white: hsl(0, 0%, 100%);
 $t-white: hsla(0, 0%, 100%, 0.491);
 
 $danger-500: hsl(0, 100%, 51%);
-$danger-50: rgb(248, 88, 104);
+$danger-50: hsl(354, 92%, 66%);
 
 $radius: 0.5rem;
 $radius-max: 50px;
@@ -20,11 +20,13 @@ $lg: "width >= 992px";
 $xl: "width >= 1200px";
 
 
-$accent-700: #cf2838;
-$accent-300: #fc6076;
-$accent-100: #f0447be8;
+$accent-800: hsl(333, 100%, 36%);
+$accent-700: hsl(354, 68%, 48%);
+$accent-500: hsl(333, 100%, 58%);
+$accent-300: hsl(352, 96%, 68%);
+$accent-100: hsla(341, 85%, 60%, 0.91);
 
-$primary-300: #ff9a44;
+$primary-300: hsl(28, 100%, 63%);
 
 
 $radius: 0.5rem;

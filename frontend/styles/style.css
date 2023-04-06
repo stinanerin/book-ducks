@@ -5,7 +5,7 @@
     min-height: 100vh;
   }
   body {
-    background: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%), -webkit-linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+    background: linear-gradient(-20deg, hsl(352deg, 96%, 68%) 0%, hsl(28deg, 100%, 63%) 100%), -webkit-linear-gradient(-20deg, hsl(352deg, 96%, 68%) 0%, hsl(28deg, 100%, 63%) 100%);
   }
   main {
     padding: 0 1rem;
@@ -13,17 +13,6 @@
   .main {
     max-width: 33rem;
     margin: auto;
-  }
-  i {
-    color: hsl(0deg, 0%, 100%);
-  }
-  .hidden {
-    display: none;
-  }
-  .link {
-    text-decoration: underline;
-    color: #cf2838;
-    cursor: pointer;
   }
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -36,25 +25,30 @@
     color: hsl(0deg, 0%, 100%);
     font-size: 0.8rem;
   }
+  i {
+    color: hsl(0deg, 0%, 100%);
+  }
+  .hidden {
+    display: none;
+  }
+  .link {
+    text-decoration: underline;
+    color: hsl(333deg, 100%, 36%);
+    cursor: pointer;
+  }
   .primary-btn {
     font-family: "Poppins", sans-serif;
     color: hsl(0deg, 0%, 100%);
     font-weight: 500;
-    background: radial-gradient(circle 610px at 5.2% 51.6%, rgba(240, 68, 123, 0.9098039216) 0%, #cf2838 97.5%);
+    background: radial-gradient(circle 610px at 5.2% 51.6%, hsla(341deg, 85%, 60%, 0.91) 0%, hsl(354deg, 68%, 48%) 97.5%);
     border-radius: 50px;
     padding: 0.8rem 1.5rem;
   }
   .primary-btn:hover {
     background: none;
-    box-shadow: 0 0 1em 0.2em rgba(240, 68, 123, 0.9098039216);
-    -webkit-box-shadow: 0 0 1em 0.2em rgba(240, 68, 123, 0.9098039216);
+    box-shadow: 0 0 1em 0.2em hsl(333deg, 100%, 58%);
+    -webkit-box-shadow: 0 0 1em 0.2em hsl(333deg, 100%, 58%);
     color: hsl(333deg, 100%, 58%);
-  }
-  header div {
-    min-width: 20%;
-  }
-  header div i, header div p {
-    font-size: 1rem;
   }
   input, input:active, input:focus,
 input:-webkit-autofill,
@@ -73,7 +67,7 @@ input:-webkit-autofill:focus::placeholder,
 input:-webkit-autofill:active::placeholder {
     font-weight: 700;
     font-family: system-ui;
-    background: linear-gradient(#ff9a44, #fc6076), -webkit-linear-gradient(#ff9a44, #fc6076);
+    background: linear-gradient(hsl(28deg, 100%, 63%), hsl(352deg, 96%, 68%)), -webkit-linear-gradient(hsl(28deg, 100%, 63%), hsl(352deg, 96%, 68%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -108,21 +102,21 @@ input:-webkit-autofill:active::placeholder {
     -webkit-box-shadow: 0 0 1px 0.1em hsl(0deg, 100%, 51%) inset;
   }
   .error::-moz-placeholder {
-    background: linear-gradient(hsl(0deg, 100%, 51%), rgb(248, 88, 104)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), rgb(248, 88, 104));
+    background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
   .error:-ms-input-placeholder {
-    background: linear-gradient(hsl(0deg, 100%, 51%), rgb(248, 88, 104)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), rgb(248, 88, 104));
+    background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
   .error::placeholder {
-    background: linear-gradient(hsl(0deg, 100%, 51%), rgb(248, 88, 104)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), rgb(248, 88, 104));
+    background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -140,7 +134,7 @@ input:-webkit-autofill:active::placeholder {
     -webkit-box-shadow: 0 0 1em 0.2em hsl(0deg, 100%, 51%);
   }
   .error:active::placeholder, .error:focus::placeholder, .error:-webkit-autofill:focus::placeholder, .error:-webkit-autofill:active::placeholder {
-    background: linear-gradient(hsl(0deg, 100%, 51%), rgb(248, 88, 104)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), rgb(248, 88, 104));
+    background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -149,5 +143,8 @@ input:-webkit-autofill:active::placeholder {
   .form-text {
     color: hsl(0deg, 0%, 100%);
     padding-left: 1.5rem;
+  }
+  header div i, header div p {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */

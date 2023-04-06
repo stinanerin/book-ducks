@@ -13,17 +13,6 @@ main {
     max-width: 33rem;
     margin: auto;
 }
-i {
-    color: $p-white;
-}
-.hidden {
-    display: none;
-}
-.link {
-    text-decoration: underline;
-    color: $accent-700;
-    cursor: pointer;
-}
 // TEXT
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -36,6 +25,17 @@ body {
     color: $p-white;
     font-size: 0.8rem;
 }
+i {
+    color: $p-white;
+}
+.hidden {
+    display: none;
+}
+.link {
+    text-decoration: underline;
+    color: $accent-800;
+    cursor: pointer;
+}
 .primary-btn {
     font-family: $heading-primary;
     color: $p-white;
@@ -45,14 +45,7 @@ body {
     padding: 0.8rem 1.5rem;
     &:hover {
         background: none;
-        @include glow($accent-100);
-        color: hsl(333, 100%, 58%);
-    }
-}
-
-header div {
-    min-width: 20%;
-    i, p {
-        font-size: 1rem;
+        @include glow($accent-500);
+        color: $accent-500;
     }
 }
