@@ -6,7 +6,7 @@ const fetchActiveUserTbr = async() => {
               Authorization: `Bearer ${sessionStorage.getItem("token")}`,
             },
           }
-        );
+        )
         return res.data.tbr
     } catch(err) {
         console.log(err);
@@ -16,14 +16,14 @@ const fetchActiveUserTbr = async() => {
 const updateTbr = async(arr) => {
     try {
         const res = await axios.put("http://localhost:1337/api/user/me",
-        {
-            tbr: arr
-        },
-        {
-            headers: {
-                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            {
+                tbr: arr
             },
-        }
+            {
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+                },
+            }
         );
     } catch(err) {
         console.log(err);

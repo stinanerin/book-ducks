@@ -1,7 +1,10 @@
 const books = document.querySelector('#books');
 let booksArr;
 
-const renderBooks = (arr) => {
+const renderBooks = (arr, heading) => {
+    books.innerHTML = ""
+    books.previousElementSibling.innerText = heading
+
     arr.forEach(({id, attributes: {title, author, release, pages,  cover : {data: {attributes: {url} }}}}) => {
         books.innerHTML  += `
         <li class="col-6 col-md-4 col-lg-3" data-id="${id}" >
@@ -38,7 +41,7 @@ const fetchBooks = async() => {
         let { data } = res.data;
         booksArr = data
         console.log("booksArr", booksArr);
-        renderBooks(booksArr)
+        renderBooks(booksArr, "Books")
 
     } catch(err) {
         console.log(err);
