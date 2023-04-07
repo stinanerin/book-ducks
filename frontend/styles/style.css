@@ -8,6 +8,9 @@
     font-family: "Poppins", sans-serif;
     color: hsl(0deg, 0%, 100%);
   }
+  h1:not(h1), h2:not(h1), h3:not(h1), h4:not(h1), h5:not(h1), h6:not(h1) {
+    margin-bottom: 1em;
+  }
   body {
     font-family: system-ui;
     color: hsl(0deg, 0%, 100%);
@@ -144,9 +147,6 @@ form input:-webkit-autofill:active:not(input[type=radio])::placeholder {
   form .form-text {
     color: hsl(0deg, 0%, 100%);
     padding-left: 1.5rem;
-  }
-  form h2 {
-    margin-bottom: 1em;
   }
   header div i, header div p {
     font-size: 1rem;

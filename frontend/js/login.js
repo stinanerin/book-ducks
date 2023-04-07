@@ -1,4 +1,5 @@
-const loginLink  = document.querySelector('#loginLink'),
+const forms  = document.querySelector('#formWrapper'),
+    loginLink  = document.querySelector('#loginLink'),
     registerLink  = document.querySelector('#registerLink'),
     loginContainer =  document.querySelector("#loginWrapper"),
     registerContainer = document.querySelector("#registerWrapper"),
