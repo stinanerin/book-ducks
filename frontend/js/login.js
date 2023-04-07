@@ -58,6 +58,6 @@ const checkSession = () => {
     } else {
         userNameDisplay.innerText = ""
         removeClass([registerContainer], "hidden")
-        renderBooks(booksArr, "Books")
     }
+    fetchBooks()
 }

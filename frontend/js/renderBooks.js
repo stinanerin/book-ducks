@@ -48,5 +48,8 @@ const fetchBooks = async() => {
     }
 }
 
-fetchBooks()
 
+document.querySelector("#startPage").addEventListener("click", () => {
+    console.log("clicked logo");
+    renderBooks(booksArr, "Books")
+})
