@@ -28,6 +28,7 @@
     <script src="js/api.js" defer></script>
     <script src="js/renderBooks.js" defer></script>
     <script src="js/tbr.js" defer></script>
+    <script src="js/account.js" defer></script>
     <!-- CSS -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -42,9 +43,11 @@
         <div class="d-flex justify-content-end align-items-center ">
             <div class="d-flex align-items-center">
                 <p class="m-0 pe-2" id="userName"></p>
-                <i class="fa-regular fa-user"></i>
+                <button class="btn" id="account">
+                    <i class="fa-regular fa-user"></i>
+                </button>
             </div>
-            <div class="">
+            <div >
                 <button class="btn" id="logout" aria-label="Log out button"><img src="assets/icons/logout.svg" alt="" aria-hidden="true" /></button>
             </div>
         </div>
@@ -137,6 +140,7 @@
 
     <!--! BOOKS GRID-->
         <div class="container text-center">
+            <h2>Books</h2>
             
             <ul id="books" class="books-grid  row gy-5 ">
                 
