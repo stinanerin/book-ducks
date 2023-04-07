@@ -8,9 +8,8 @@ const renderBooks = (arr, heading) => {
     console.log(arr);
     arr.forEach(({id, attributes: {title, author, release, pages,  cover : {data: {attributes: {url} }}}}) => {
         const li = document.createElement("li")
-        addClass([li], "col-6 col-md-4 col-lg-3 ")
+        li.className = "col-6 col-md-4 col-lg-3 ";
         li.dataset.id = id
-
         li.innerHTML  += `
             <img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/>
             <div class="book-rating">
