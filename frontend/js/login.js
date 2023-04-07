@@ -33,7 +33,7 @@ const login = async() => {
             identifier: loginEmail.value,
             password: loginPwd.value,
         })
-        console.log(res);
+        console.log("login res",res);
         addSession(res)
     } catch(err) {
         console.log(err);
