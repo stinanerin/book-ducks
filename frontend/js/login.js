@@ -8,12 +8,12 @@ const forms  = document.querySelector('#formWrapper'),
     userNameDisplay = document.querySelector("#userName"),
     loginEmail = document.querySelector("#loginEmail"), 
     loginPwd = document.querySelector("#loginPWD"),
-
     username = document.querySelector("#fullName"),
     email = document.querySelector("#email"), 
     pwd = document.querySelector("#pwd"),
     confPwd = document.querySelector("#pwdConf"),
     passwordAlert = document.querySelector("#passwordAlert"),
+    logoutWrapper = document.querySelector("#logout"),
     formHelpers = document.querySelectorAll(".form-text");
 
 // ----------------------- TOGGLE BETWEEN REGISTER / LOGIN VIEW -----------------------
@@ -34,7 +34,6 @@ const login = async() => {
             identifier: loginEmail.value,
             password: loginPwd.value,
         })
-        console.log("login res",res);
         addSession(res)
     } catch(err) {
         console.log(err);
@@ -53,12 +52,13 @@ const addSession = (res) => {
 const checkSession = () => {
     if (sessionStorage.getItem("token")){
         userNameDisplay.innerText = toUpperCaseStr(sessionStorage.getItem("user"));
-        addClass([loginContainer, registerContainer], "hidden")
+        addClass([forms], "hidden")
+        removeClass([logoutWrapper], "hidden")
 
         //! obs behöver man tänka på att undvika så två kan vara inloggade samtidigt?
     } else {
         userNameDisplay.innerText = ""
-        removeClass([registerContainer], "hidden")
+        addClass([logoutWrapper], "hidden")
     }
     fetchBooks()
 }

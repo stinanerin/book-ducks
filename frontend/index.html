@@ -25,7 +25,6 @@
     <script src="js/register.js" defer></script>
     <script src="js/logout.js" defer></script>
     <script src="js/renderBooks.js" defer></script>
-    <script src="js/api.js" defer></script>
     <script src="js/tbr.js" defer></script>
     <script src="js/account.js" defer></script>
     <script src="js/index.js" defer></script>
@@ -49,18 +48,18 @@
                     <i class="fa-regular fa-user"></i>
                 </button>
             </div>
-            <div >
-                <button class="btn" id="logout" aria-label="Log out button"><img src="assets/icons/logout.svg" alt="" aria-hidden="true" /></button>
+            <div id="logout" class="hidden">
+                <button class="btn" aria-label="Log out button"><img src="assets/icons/logout.svg" alt="" aria-hidden="true" /></button>
             </div>
         </div>
     </header>
 
     <main>
-    <!--! FORMS-->
+    <!--! FORMS -->
         <div class="pt-5 hidden" id="formWrapper">
             <p id="feedback" class="text-center"></p>
             <!--! REGISTER FORM -->
-            <div id="registerWrapper">
+            <div id="registerWrapper" class="hidden">
                 <form class="container main" id="registerUser">
                     <h2 class="text-center">Create an account</h2>
                     <div class="row gy-3">
@@ -111,7 +110,7 @@
                 </div>
             </div>
             <!--! LOGIN FORM -->
-            <div id="loginWrapper" class="hidden">
+            <div id="loginWrapper">
                 <form class="container main" id="loginForm">
                     <h2 class="text-center">Sign in</h2>
                     <div class="row gy-3 ">
@@ -141,7 +140,7 @@
         </div> 
 
     <!--! BOOKS GRID-->
-        <div class="container text-center">
+        <div class="container text-center" id="booksWrapper">
             <h2></h2>
             
             <ul id="books" class="books-grid  row gy-5 ">

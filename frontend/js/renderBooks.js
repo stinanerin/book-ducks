@@ -28,28 +28,23 @@ const renderBooks = (arr, heading) => {
             <button class="btn" onclick="addToTbr(this)">+</button>
         </li>
         `
-    
     })
 }
 
-
 const fetchBooks = async() => {
-
     try {
         const res = await axios.get("http://localhost:1337/api/books?populate=*")
-        // console.log(res);
-        let { data } = res.data;
-        booksArr = data
-        console.log("booksArr", booksArr);
+        // Assings strapi bookArr to globally available variable
+        booksArr = res.data.data
         renderBooks(booksArr, "Books")
-
     } catch(err) {
         console.log(err);
     }
 }
 
-
+// ----------------------- HEADER LOGO BUTTON -----------------------
 document.querySelector("#startPage").addEventListener("click", () => {
-    console.log("clicked logo");
+    removeClass([booksWrapper], "hidden")
+    addClass([forms], "hidden")
     renderBooks(booksArr, "Books")
 })
