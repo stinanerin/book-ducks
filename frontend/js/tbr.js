@@ -12,19 +12,23 @@ const fetchActiveUserTbr = async() => {
         console.log(err);
     }
 }
-
+// ctx.request.body.tbr
 const updateTbr = async(arr) => {
+    // console.log((data: {tbr: arr }));
     try {
         const res = await axios.put("http://localhost:1337/api/user/me",
             {
-                tbr: arr
+                data: {
+                    tbr: arr
+                }
             },
             {
                 headers: {
                     Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+                    "Content-Type": "application/json"
                 },
             }
-        );
+        )
     } catch(err) {
         console.log(err);
     }
