@@ -49,12 +49,7 @@ const avgRating = (arr) => (arr.reduce((a, b) => a + b, 0) / arr.length).toFixed
 const addUsersRatings = async(newRating, id) => {
     try {
         console.log("rating", newRating, "bookID", id);
-        const res = await axios.get(`http://localhost:1337/api/users/me?populate=*`,
-        {
-            headers: {
-                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-            },
-        })
+        const res = fetchActiveUser()
         const arr = res.data.ratedBooks
         console.log("pre push", arr);
         arr.push({

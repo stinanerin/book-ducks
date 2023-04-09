@@ -4,7 +4,8 @@ const booksWrapper = document.querySelector("#booksWrapper")
 
 document.querySelector('#account').addEventListener("click", async() => {
     if(sessionStorage.getItem("token")) {
-        const tbr = await fetchActiveUserTbr()
+        const res = await fetchActiveUser()
+        const tbr = res.data.tbr
         if(tbr.length == 0) {
             console.log("you have no books");
         }
