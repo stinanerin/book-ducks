@@ -12,9 +12,8 @@ const fetchActiveUserTbr = async() => {
         console.log(err);
     }
 }
-// ctx.request.body.tbr
+
 const updateTbr = async(arr) => {
-    // console.log((data: {tbr: arr }));
     try {
         const res = await axios.put("http://localhost:1337/api/user/me",
             {
@@ -38,11 +37,7 @@ const addToTbr = async(btn) => {
     const bookID = btn.parentElement.dataset.id
     const tbr = await fetchActiveUserTbr()
     console.log("bookId", bookID, "tbr pre psuh", tbr);
-    tbr.push(
-        {
-            bookId: bookID,
-        }
-    )
+    tbr.push({bookId: bookID})
     console.log("tbr after push",tbr);
     updateTbr(tbr)
 }
