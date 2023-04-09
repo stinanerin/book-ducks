@@ -2,9 +2,7 @@ const starRating = (wrapper) => {
     const stars = wrapper.querySelectorAll("input[name='rate']")
     stars.forEach((star, index, arr) => 
         star.addEventListener('click', () => {
-            const labels = [...arr].map(star => star.parentElement)
-            removeClass(labels, "active");
-            labels.slice(0, index + 1).forEach(star => addClass([star], "active"))
+            activateStarsUpToIndex(index, arr)
             addRating(star.value, wrapper.dataset.id)
             addUsersRatings(star.value, wrapper.dataset.id)
         })
@@ -46,10 +44,17 @@ const updateRating = async(arr, bookId) => {
 
 const avgRating = (arr) => (arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(2)
 
+const activateStarsUpToIndex = (index, starArr) => {
+    // Makes copy in case incoming array is nodelist
+    const labels = [...starArr].map(star => star.parentElement)
+    removeClass(labels, "active");
+    labels.slice(0, index + 1).forEach(star => addClass([star], "active"))
+}
+
 const addUsersRatings = async(newRating, id) => {
     try {
         console.log("rating", newRating, "bookID", id);
-        const res = fetchActiveUser()
+        const res = await fetchActiveUser()
         const arr = res.data.ratedBooks
         console.log("pre push", arr);
         arr.push({
@@ -61,8 +66,6 @@ const addUsersRatings = async(newRating, id) => {
         console.log(err);
     }
 }
-
-
 
 const updateUsersRatings = async(arr) => {
     try {

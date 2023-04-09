@@ -1,13 +1,20 @@
 const books = document.querySelector('#books');
 let booksArr;
+let usersRatedBooks;
 
-const renderBooks = (arr, heading) => {
+const renderBooks = async(arr, heading) => {
     books.innerHTML = ""
     books.previousElementSibling.innerText = heading
-    
-    console.log(arr);
-    arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
 
+    if(sessionStorage.getItem("token")) {
+        const res = await fetchActiveUser()
+        usersRatedBooks = res.data.ratedBooks
+
+        // activateStarsUpToIndex(index, arr)
+    }
+    
+    arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}, index) => {
+        
         const li = document.createElement("li")
         li.className = "col-6 col-md-4 col-lg-3 ";
         li.dataset.id = id
@@ -37,6 +44,14 @@ const renderBooks = (arr, heading) => {
             <p>${rating.length > 0 ? "<b>Rating: </b>" + avgRating(rating.map(rate => rate.rating)) : "" } </p>
             <button class="btn" onclick="addToTbr(this)">+</button>
         `
+
+        /* If bookId in userRatedBooks match the currently rendered book's id --> match */
+        if(usersRatedBooks.find((book) => +book.bookId === id)) {
+            const book = usersRatedBooks.find((book) => +book.bookId === id)
+            const stars = li.querySelectorAll("input[name='rate']")
+            activateStarsUpToIndex(book.rating ,stars)
+        }
+
         starRating(li)
         books.append(li)
     })

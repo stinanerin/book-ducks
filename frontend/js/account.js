@@ -9,6 +9,8 @@ document.querySelector('#account').addEventListener("click", async() => {
         if(tbr.length == 0) {
             console.log("you have no books");
         }
+        console.log(booksArr);
+        console.log(tbr);
         const tbrArr = booksArr.filter(book => tbr.map(book => +book.bookId).includes(book.id))   
         renderBooks(tbrArr, "TBR")
     } else {
