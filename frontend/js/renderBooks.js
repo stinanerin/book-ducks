@@ -6,7 +6,8 @@ const renderBooks = (arr, heading) => {
     books.previousElementSibling.innerText = heading
     
     console.log(arr);
-    arr.forEach(({id, attributes: {title, author, release, pages,  cover : {data: {attributes: {url} }}}}) => {
+    arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
+
         const li = document.createElement("li")
         li.className = "col-6 col-md-4 col-lg-3 ";
         li.dataset.id = id
@@ -31,11 +32,12 @@ const renderBooks = (arr, heading) => {
             </div>
             <h2>${title} </h2>
             <h3>${author}</h3>
-            <p>Published: ${release}</p>
-            <p>Length: ${pages} pages</p>
+            <p><b>Published:</b> ${release}</p>
+            <p><b>Length:</b> ${pages} pages</p>
+            <p>${rating.length > 0 ? "<b>Rating: </b>" + avgRating(rating.map(rate => rate.rating)) : "" } </p>
             <button class="btn" onclick="addToTbr(this)">+</button>
         `
-        rating(li)
+        starRating(li)
         books.append(li)
     })
 }
@@ -58,3 +60,4 @@ document.querySelector("#startPage").addEventListener("click", () => {
     addClass([forms], "hidden")
     renderBooks(booksArr, "Books")
 })
+

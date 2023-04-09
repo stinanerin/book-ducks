@@ -1,4 +1,4 @@
-const rating = (wrapper) => {
+const starRating = (wrapper) => {
     const stars = wrapper.querySelectorAll("input[name='rate']")
     stars.forEach((star, index, arr) => 
         star.addEventListener('click', () => {
@@ -43,3 +43,5 @@ const updateRating = async(arr, bookId) => {
         console.log(error);
     }
 }
+
+const avgRating = (arr) => (arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(2)
