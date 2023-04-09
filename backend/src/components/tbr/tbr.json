@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_tbr_tbrs",
+  "info": {
+    "displayName": "tbr",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bookId": {
+      "type": "biginteger",
+      "unique": false
+    }
+  }
+}
