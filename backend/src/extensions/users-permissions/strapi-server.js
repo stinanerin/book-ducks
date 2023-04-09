@@ -8,8 +8,7 @@ module.exports = (plugin) => {
             'plugin::users-permissions.user', 
             ctx.state.user.id,
             {
-            data: ctx.request.body,
-            populate: ctx.request.body,
+            data: ctx.request.body.data,
             }).then((res) => {
                 ctx.response.status = 200;
             })
