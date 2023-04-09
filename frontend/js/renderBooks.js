@@ -14,7 +14,7 @@ const renderBooks = (arr, heading) => {
         li.innerHTML  += `
             <img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/>
             <div class="book-rating">
-                <label class="active">
+                <label>
                     <input type="radio" name="rate" value="1">
                 </label>
                 <label>
@@ -45,7 +45,6 @@ const renderBooks = (arr, heading) => {
 const fetchBooks = async() => {
     try {
         const res = await axios.get("http://localhost:1337/api/books?populate=*")
-
         // Assings strapi bookArr to globally available variable
         booksArr = res.data.data
         renderBooks(booksArr, "Books")
