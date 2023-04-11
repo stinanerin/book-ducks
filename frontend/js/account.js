@@ -1,4 +1,3 @@
-const booksWrapper = document.querySelector("#booksWrapper")
 
 // ----------------------- ACCOUNT ICON -----------------------
 
@@ -14,6 +13,7 @@ document.querySelector('#account').addEventListener("click", async() => {
         /* Filter global booksArr for the users tbr books IDs --> Render them */
         const tbrArr = booksArr.filter(book => tbr.map(book => +book.bookId).includes(book.id))   
         renderBooks(tbrArr, "TBR")
+        renderBooks(tbrArr, "Rated", ulRating)
     } else {
         addClass([booksWrapper], "hidden")
         removeClass([forms], "hidden")
