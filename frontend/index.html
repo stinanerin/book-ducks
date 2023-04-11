@@ -142,12 +142,23 @@
 
     <!--! BOOKS GRID-->
         <div class="container text-center" id="booksWrapper">
-            <!-- <h2></h2> -->
-            
-            <ul id="books" class="books-grid row gy-5 mt-5">
+
+            <fieldset>
+                <legend>Sort by</legend>  
+                <select class="form-select" id="sorting">
+                    <option value="" hidden disabled selected>Sort by</option>
+                    <option value="unsortered">Unsortered</option>
+                    <option value="title">Title(A-Z)</option>
+                    <option value="author">Author(A-Z)</option>
+                    <option value="rating">Rating</option>
+                </select>
+            </fieldset>
+
+            <ul id="rated" class="books-grid row gy-5 mt-5">
                 
             </ul>
-            <ul id="rated" class="books-grid row gy-5 mt-5">
+
+            <ul id="books" class="books-grid row gy-5 mt-5">
                 
             </ul>
         </div>
