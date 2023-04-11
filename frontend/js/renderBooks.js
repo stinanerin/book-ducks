@@ -12,8 +12,7 @@ const renderBooks = async(arr, heading) => {
         usersRatedBooks = res.data.ratedBooks
     }
     
-    arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}, index) => {
-        
+    arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
         const li = document.createElement("li")
         li.className = "col-6 col-md-4 col-lg-3 ";
         li.dataset.id = id
@@ -40,7 +39,7 @@ const renderBooks = async(arr, heading) => {
             <h3>${author}</h3>
             <p><b>Published:</b> ${release}</p>
             <p><b>Length:</b> ${pages} pages</p>
-            <p>${rating.length > 0 ? "<b>Rating: </b>" + avgRating(rating.map(rate => rate.rating)) : "" } </p>
+            <p class="rating">${rating.length > 0 ? "<b>Rating: </b>" + avgRating(rating) : "" } </p>
             <button class="btn" onclick="addToTbr(this)">+</button>
         `
 
@@ -50,6 +49,7 @@ const renderBooks = async(arr, heading) => {
             const stars = li.querySelectorAll("input[name='rate']")
             activateStarsUpToIndex(--book.rating, stars)
         }
+        
         /* Applies eventlisteners to stars */
         starRating(li)
         books.append(li)
@@ -73,4 +73,3 @@ document.querySelector("#startPage").addEventListener("click", () => {
     addClass([forms], "hidden")
     renderBooks(booksArr, "Books")
 })
-

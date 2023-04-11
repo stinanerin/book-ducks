@@ -1,12 +1,13 @@
 const starRating = (wrapper) => {
     const stars = wrapper.querySelectorAll("input[name='rate']")
     stars.forEach((star, index, arr) => 
-        star.addEventListener('click', () => {
+        star.addEventListener('click', async() => {
             /* Changes stars directly on the DOM */
             activateStarsUpToIndex(index, arr)
-            /* Adds the book rating to the books rating component list - and removes user old rating for the same book if necessary */
-            addRating(star.value, wrapper.dataset.id)
-            //todo Should I make a then and update the rating 3.99 directly to th  dom?
+            /* Adds the book rating to the specifik book's rating component list - and removes user old rating for the same book if necessary */
+            const updatedRatingsArr = await addRating(star.value, wrapper.dataset.id)
+            /* Updates the DOM with the book's new avg rating */
+            wrapper.querySelector(".rating").innerText = avgRating(updatedRatingsArr)
             /* Adds the book rating to the users rated books component list - and removes user old rating for the same book if necessary */
             addUsersRatings(star.value, wrapper.dataset.id)
         })
@@ -27,7 +28,7 @@ const addRating = async(newRating, bookId) => {
             userId: userID
         })
 
-        updateRating(arr, bookId)
+        return updateRating(arr, bookId)
     } catch (error) {
         console.log(error);
     }
@@ -35,7 +36,7 @@ const addRating = async(newRating, bookId) => {
 
 const updateRating = async(arr, bookId) => {
     try {
-        await axios.put(`http://localhost:1337/api/books/${bookId}?populate=*`,
+        const res = await axios.put(`http://localhost:1337/api/books/${bookId}?populate=*`,
             {
                 data: {
                     rating: arr
@@ -48,12 +49,16 @@ const updateRating = async(arr, bookId) => {
                 }
             },
         )
+        return res.data.data.attributes.rating
     } catch (error) {
         console.log(error);
     }
 }
 
-const avgRating = (arr) => (arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(2)
+const avgRating = (arr) => {
+    console.log(arr);
+    return (arr.map(rate => rate.rating).reduce((a, b) => a + b, 0) / arr.length).toFixed(2)
+}
 
 const activateStarsUpToIndex = (index, starArr) => {
     // Makes copy in case incoming array is nodelist
