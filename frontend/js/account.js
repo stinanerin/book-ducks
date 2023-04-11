@@ -11,6 +11,10 @@ document.querySelector('#account').addEventListener("click", async() => {
             //todo! Add display
             console.log("you have no books");
         }
+        if(ratings.length == 0) {
+            //todo! Add display
+            console.log("you have no books");
+        }
         /* Filter global booksArr for the users tbr books IDs --> Render them */
         //todo break out filter function
         const tbrArr = booksArr.filter(book => tbr.map(book => +book.bookId).includes(book.id))   
@@ -21,13 +25,23 @@ document.querySelector('#account').addEventListener("click", async() => {
         const select = document.querySelector('#sorting');
         
         select && select.addEventListener("change", () => {
-            console.log(select.value);
             let sortedArr
-            
+
             if(select.value === "title") {
+
                 sortedArr = sortStringArr(ratedBooks, "title")
+
             } else if(select.value === "author") {
+
                 sortedArr = sortStringArr(ratedBooks, "author") 
+
+            } else if(select.value === "rating") {
+                
+                sortedArr = ratings
+                .sort(({rating: a}, {rating: b}) => b - a)
+                    .map(rating => booksArr.find(book => +book.id === +rating.bookId))
+                    .filter(book => book !== undefined)
+            
             }
             renderBooks(sortedArr, "Rated", ulRating)
         })
