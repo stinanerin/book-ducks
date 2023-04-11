@@ -7,7 +7,6 @@ const renderBooks = async(arr, heading) => {
     books.previousElementSibling.innerText = heading
 
     const loggedInUser = sessionStorage.getItem("token") ? true : false
-    console.log(loggedInUser);
 
     /* If a user is signed in - fetch their rated books from strapi */
     if(loggedInUser) {
@@ -46,18 +45,20 @@ const renderBooks = async(arr, heading) => {
             <button class="btn" onclick="addToTbr(this)">+</button>
         `
 
-        /* If bookId in userRatedBooks match the currently rendered book's id --> match */
-        if(usersRatedBooks && usersRatedBooks.find((book) => +book.bookId === id)) {
-            const book = usersRatedBooks.find((book) => +book.bookId === id)
-            const stars = li.querySelectorAll("input[name='rate']")
-            activateStarsUpToIndex(--book.rating, stars)
-        }
-
         /* If user is logged in - apply eventlisteners to stars */
         if(loggedInUser) {
             starRating(li)
+            /* 
+                If bookId in userRatedBooks match the currently rendered book's id --> 
+                color stars according to users rating 
+            */
+            if(usersRatedBooks && usersRatedBooks.find((book) => +book.bookId === id)) {
+                const book = usersRatedBooks.find((book) => +book.bookId === id)
+                const stars = li.querySelectorAll("input[name='rate']")
+                activateStarsUpToIndex(--book.rating, stars)
+            }
         }
-        
+
         books.append(li)
     })
 }
