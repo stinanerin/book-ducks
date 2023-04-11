@@ -3,6 +3,7 @@ const starRating = (wrapper) => {
     stars.forEach((star, index, arr) => 
         star.addEventListener('click', async() => {
             /* Changes stars directly on the DOM */
+            //todo move so it only happens after I have ydated users in strapi - hamronize dataflow?
             activateStarsUpToIndex(index, arr)
             /* Adds the book rating to the specifik book's rating component list - and removes user old rating for the same book if necessary */
             const updatedRatingsArr = await addRating(star.value, wrapper.dataset.id)
@@ -88,7 +89,7 @@ const addUsersRatings = async(newRating, id) => {
 
 const updateUsersRatings = async(arr) => {
     try {
-       await axios.put("http://localhost:1337/api/user/me",
+        await axios.put("http://localhost:1337/api/user/me",
             {
                 data: {
                     ratedBooks: arr
