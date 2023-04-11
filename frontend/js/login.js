@@ -45,6 +45,7 @@ const login = async() => {
 const addSession = (res) => {
     sessionStorage.setItem("token", res.data.jwt);
     sessionStorage.setItem("user", res.data.user.username);
+    sessionStorage.setItem("userId", res.data.user.id);
     checkSession()
 }
 

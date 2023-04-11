@@ -6,11 +6,10 @@ const renderBooks = async(arr, heading) => {
     books.innerHTML = ""
     books.previousElementSibling.innerText = heading
 
+    /* If a user is signed in - fetch their rated books from strapi */
     if(sessionStorage.getItem("token")) {
         const res = await fetchActiveUser()
         usersRatedBooks = res.data.ratedBooks
-
-        // activateStarsUpToIndex(index, arr)
     }
     
     arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}, index) => {
@@ -46,12 +45,12 @@ const renderBooks = async(arr, heading) => {
         `
 
         /* If bookId in userRatedBooks match the currently rendered book's id --> match */
-        if(usersRatedBooks.find((book) => +book.bookId === id)) {
+        if(usersRatedBooks && usersRatedBooks.find((book) => +book.bookId === id)) {
             const book = usersRatedBooks.find((book) => +book.bookId === id)
             const stars = li.querySelectorAll("input[name='rate']")
-            activateStarsUpToIndex(book.rating ,stars)
+            activateStarsUpToIndex(--book.rating, stars)
         }
-
+        /* Applies eventlisteners to stars */
         starRating(li)
         books.append(li)
     })
@@ -60,7 +59,7 @@ const renderBooks = async(arr, heading) => {
 const fetchBooks = async() => {
     try {
         const res = await axios.get("http://localhost:1337/api/books?populate=*")
-        // Assings strapi bookArr to globally available variable
+        /* Assings strapi bookArr to globally available variable */
         booksArr = res.data.data
         renderBooks(booksArr, "Books")
     } catch(err) {

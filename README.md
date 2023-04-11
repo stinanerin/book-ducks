@@ -8,3 +8,6 @@ School project for interaction with CMS course.
 * Bootstrap
 * Sass
 
+### Todo
+
+* finish rating - bug with clicked stars

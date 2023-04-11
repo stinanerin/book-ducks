@@ -1,7 +1,8 @@
 {
   "collectionName": "components_rating_ratings",
   "info": {
-    "displayName": "rating"
+    "displayName": "rating",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,6 +10,9 @@
       "type": "integer",
       "max": 5,
       "min": 1
+    },
+    "userId": {
+      "type": "biginteger"
     }
   }
 }
