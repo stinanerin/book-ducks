@@ -35,6 +35,7 @@ const login = async() => {
             password: loginPwd.value,
         })
         addSession(res)
+        removeClass([booksWrapper], "hidden")
     } catch(err) {
         console.log(err);
         feedback.innerText = err;
