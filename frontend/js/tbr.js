@@ -1,20 +1,5 @@
-const fetchActiveUserTbr = async() => {
-    try {
-        const res = await axios.get("http://localhost:1337/api/users/me?populate=*",
-          {
-            headers: {
-              Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-            },
-          }
-        )
-        return res.data.tbr
-    } catch(err) {
-        console.log(err);
-    }
-}
-// ctx.request.body.tbr
+
 const updateTbr = async(arr) => {
-    // console.log((data: {tbr: arr }));
     try {
         const res = await axios.put("http://localhost:1337/api/user/me",
             {
@@ -35,14 +20,12 @@ const updateTbr = async(arr) => {
 }
 
 const addToTbr = async(btn) => {
+    //todo! Clear user frpm adding mutlitple books til lsit, as to not add data unnecessarily
     const bookID = btn.parentElement.dataset.id
-    const tbr = await fetchActiveUserTbr()
+    const res = await fetchActiveUser()
+    const tbr = res.data.tbr
     console.log("bookId", bookID, "tbr pre psuh", tbr);
-    tbr.push(
-        {
-            bookId: bookID,
-        }
-    )
+    tbr.push({bookId: bookID})
     console.log("tbr after push",tbr);
     updateTbr(tbr)
 }

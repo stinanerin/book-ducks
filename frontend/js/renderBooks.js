@@ -1,40 +1,72 @@
 const books = document.querySelector('#books');
 let booksArr;
+let usersRatedBooks;
 
-const renderBooks = (arr, heading) => {
+const renderBooks = async(arr, heading) => {
     books.innerHTML = ""
     books.previousElementSibling.innerText = heading
 
-    arr.forEach(({id, attributes: {title, author, release, pages,  cover : {data: {attributes: {url} }}}}) => {
-        books.innerHTML  += `
-        <li class="col-6 col-md-4 col-lg-3" data-id="${id}" >
+    const loggedInUser = sessionStorage.getItem("token") ? true : false
+
+    /* If a user is signed in - fetch their rated books from strapi */
+    if(loggedInUser) {
+        const res = await fetchActiveUser()
+        usersRatedBooks = res.data.ratedBooks
+    }
+    
+    arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
+        const li = document.createElement("li")
+        li.className = "col-6 col-md-4 col-lg-3 ";
+        li.dataset.id = id
+        li.innerHTML  += `
             <img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/>
             <div class="book-rating">
-                <input type="radio" name="rate" id="five" value="5">
-                <label for="five"></label>
-                <input type="radio" name="rate" id="four" value="4">
-                <label for="four"></label>
-                <input type="radio" name="rate" id="three" value="3">
-                <label for="three"></label>
-                <input type="radio" name="rate" id="two" value="2">
-                <label for="two"></label>
-                <input type="radio" name="rate" id="one" value="1">
-                <label for="one"></label>
+                <label>
+                    <input type="radio" name="rate" value="1">
+                </label>
+                <label>
+                    <input type="radio" name="rate" value="2">
+                </label>
+                <label>
+                    <input type="radio" name="rate"  value="3">
+                </label>
+                <label>
+                    <input type="radio" name="rate"  value="4">
+                </label>
+                <label>
+                    <input type="radio" name="rate" value="5">
+                </label>
             </div>
             <h2>${title} </h2>
             <h3>${author}</h3>
-            <p>Published: ${release}</p>
-            <p>Length: ${pages} pages</p>
+            <p><b>Published:</b> ${release}</p>
+            <p><b>Length:</b> ${pages} pages</p>
+            <p class="rating">${rating.length > 0 ? "<b>Rating: </b>" + avgRating(rating) : "" } </p>
             <button class="btn" onclick="addToTbr(this)">+</button>
-        </li>
         `
+
+        /* If user is logged in - apply eventlisteners to stars */
+        if(loggedInUser) {
+            starRating(li)
+            /* 
+                If bookId in userRatedBooks match the currently rendered book's id --> 
+                color stars according to users rating 
+            */
+            if(usersRatedBooks && usersRatedBooks.find((book) => +book.bookId === id)) {
+                const book = usersRatedBooks.find((book) => +book.bookId === id)
+                const stars = li.querySelectorAll("input[name='rate']")
+                activateStarsUpToIndex(--book.rating, stars)
+            }
+        }
+
+        books.append(li)
     })
 }
 
 const fetchBooks = async() => {
     try {
         const res = await axios.get("http://localhost:1337/api/books?populate=*")
-        // Assings strapi bookArr to globally available variable
+        /* Assings strapi bookArr to globally available variable */
         booksArr = res.data.data
         renderBooks(booksArr, "Books")
     } catch(err) {

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_rated_books_rated_books",
+  "info": {
+    "displayName": "ratedBooks"
+  },
+  "options": {},
+  "attributes": {
+    "bookId": {
+      "type": "biginteger"
+    },
+    "rating": {
+      "type": "integer",
+      "max": 5,
+      "min": 0
+    }
+  }
+}

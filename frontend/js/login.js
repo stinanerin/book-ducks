@@ -35,6 +35,7 @@ const login = async() => {
             password: loginPwd.value,
         })
         addSession(res)
+        removeClass([booksWrapper], "hidden")
     } catch(err) {
         console.log(err);
         feedback.innerText = err;
@@ -45,6 +46,7 @@ const login = async() => {
 const addSession = (res) => {
     sessionStorage.setItem("token", res.data.jwt);
     sessionStorage.setItem("user", res.data.user.username);
+    sessionStorage.setItem("userId", res.data.user.id);
     checkSession()
 }
 
