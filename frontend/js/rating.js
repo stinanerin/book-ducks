@@ -2,8 +2,12 @@ const starRating = (wrapper) => {
     const stars = wrapper.querySelectorAll("input[name='rate']")
     stars.forEach((star, index, arr) => 
         star.addEventListener('click', () => {
+            /* Changes stars directly on the DOM */
             activateStarsUpToIndex(index, arr)
+            /* Adds the book rating to the books rating component list - and removes user old rating for the same book if necessary */
             addRating(star.value, wrapper.dataset.id)
+            //todo Should I make a then and update the rating 3.99 directly to th  dom?
+            /* Adds the book rating to the users rated books component list - and removes user old rating for the same book if necessary */
             addUsersRatings(star.value, wrapper.dataset.id)
         })
     )
@@ -15,12 +19,14 @@ const addRating = async(newRating, bookId) => {
         const arr = res.data.data.attributes.rating;
         const userID = +sessionStorage.getItem("userId")
 
+        /* If user already has rated book, remove old rating */
         removeRating(arr, "userId", userID)
         
         arr.push({
             rating: +newRating,
-            userId: sessionStorage.getItem("userId")
+            userId: userID
         })
+
         updateRating(arr, bookId)
     } catch (error) {
         console.log(error);
@@ -60,7 +66,6 @@ const addUsersRatings = async(newRating, id) => {
     try {
         const res = await fetchActiveUser()
         const arr = res.data.ratedBooks
-
         
         /* If user already has rated book, remove old rating */
         removeRating(arr, "bookId", id)
@@ -69,6 +74,7 @@ const addUsersRatings = async(newRating, id) => {
             rating: newRating,
             bookId: id
         })
+
         updateUsersRatings(arr)
     } catch(err) {
         console.log(err);
