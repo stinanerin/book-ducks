@@ -6,8 +6,11 @@ const renderBooks = async(arr, heading) => {
     books.innerHTML = ""
     books.previousElementSibling.innerText = heading
 
+    const loggedInUser = sessionStorage.getItem("token") ? true : false
+    console.log(loggedInUser);
+
     /* If a user is signed in - fetch their rated books from strapi */
-    if(sessionStorage.getItem("token")) {
+    if(loggedInUser) {
         const res = await fetchActiveUser()
         usersRatedBooks = res.data.ratedBooks
     }
@@ -49,9 +52,12 @@ const renderBooks = async(arr, heading) => {
             const stars = li.querySelectorAll("input[name='rate']")
             activateStarsUpToIndex(--book.rating, stars)
         }
+
+        /* If user is logged in - apply eventlisteners to stars */
+        if(loggedInUser) {
+            starRating(li)
+        }
         
-        /* Applies eventlisteners to stars */
-        starRating(li)
         books.append(li)
     })
 }
