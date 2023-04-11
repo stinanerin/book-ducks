@@ -55,10 +55,10 @@ const updateRating = async(arr, bookId) => {
     }
 }
 
-const avgRating = (arr) => {
-    console.log(arr);
-    return (arr.map(rate => rate.rating).reduce((a, b) => a + b, 0) / arr.length).toFixed(2)
-}
+/**
+ * @param {array} arr - strapi array of objects {rating: x, userId, y}
+ */
+const avgRating = (arr) => (arr.map(rate => rate.rating).reduce((a, b) => a + b, 0) / arr.length).toFixed(2)
 
 const activateStarsUpToIndex = (index, starArr) => {
     // Makes copy in case incoming array is nodelist
@@ -110,7 +110,6 @@ const updateUsersRatings = async(arr) => {
 * @param {string}  objKey - the object key you want to examine
 * @param {number}  value - the specified value you want to find & remove
 */ 
-
 const removeRating = (arr, objKey, value) => {
     /* If user already has rated book, remove old rating */
     if(arr.find(elem => +elem[objKey] === +value)) {
