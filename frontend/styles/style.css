@@ -4,6 +4,17 @@
 @layer special-styles {
   * {
     outline: 1px solid pink;
+  body.earthy {
+    background: linear-gradient(-20deg, hsla(341deg, 85%, 60%, 0.91) 0%, hsl(28deg, 100%, 63%) 100%), -webkit-linear-gradient(-20deg, hsla(341deg, 85%, 60%, 0.91) 0%, hsl(28deg, 100%, 63%) 100%);
+  }
+  body.earthy * {
+    color: hsl(0deg, 0%, 100%);
+  }
+  body.minimalist {
+    background: linear-gradient(-20deg, rgb(136, 167, 136) 0%, rgb(106, 106, 226) 100%), -webkit-linear-gradient(-20deg, rgb(136, 167, 136) 0%, rgb(106, 106, 226) 100%);
+  }
+  body.minimalist * {
+    color: hsl(0deg, 0%, 0%);
   }
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -21,9 +32,6 @@
   }
   html {
     min-height: 100vh;
-  }
-  body {
-    background: linear-gradient(-20deg, hsl(352deg, 96%, 68%) 0%, hsl(28deg, 100%, 63%) 100%), -webkit-linear-gradient(-20deg, hsl(352deg, 96%, 68%) 0%, hsl(28deg, 100%, 63%) 100%);
   }
   main {
     padding: 0 1rem;

@@ -24,11 +24,9 @@ body {
 html {
     min-height: 100vh;
 }
-body {
-    background: 
-        linear-gradient(-20deg, $accent-300 0%, $primary-300 100%),
-        -webkit-linear-gradient(-20deg, $accent-300 0%, $primary-300 100%);
-}
+// body {
+//     background: $background;
+// }
 main {
     padding: 0 1rem;
 }

@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "color_themes",
+  "info": {
+    "singularName": "color-theme",
+    "pluralName": "color-themes",
+    "displayName": "colorTheme",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "colorTheme": {
+      "type": "enumeration",
+      "enum": [
+        "minimalist",
+        "earthy"
+      ],
+      "required": true,
+      "default": "minimalist"
+    }
+  }
+}
