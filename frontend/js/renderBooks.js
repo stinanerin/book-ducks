@@ -1,10 +1,26 @@
-const books = document.querySelector('#books');
+const booksWrapper = document.querySelector("#booksWrapper")
+const ulRating = booksWrapper.querySelector("#rated")
+
 let booksArr;
 let usersRatedBooks;
 
-const renderBooks = async(arr, heading) => {
-    books.innerHTML = ""
-    books.previousElementSibling.innerText = heading
+/**
+* @param {array} arr - strapi array of book objects
+* @param {string} heading - the heading for the book list
+* @param {number} ul - the ul the book list should be appended in
+*/ 
+
+const renderBooks = async(arr, heading, ul) => {
+    if(!ul) {
+        ul = document.querySelector('#books');
+    }
+
+    ul.innerHTML = ""
+    ulRating.innerHTML = ""
+
+    const h2 = document.createElement("h2")
+    h2.innerText = heading
+    ul.prepend(h2)
 
     const loggedInUser = sessionStorage.getItem("token") ? true : false
 
@@ -37,8 +53,8 @@ const renderBooks = async(arr, heading) => {
                     <input type="radio" name="rate" value="5">
                 </label>
             </div>
-            <h2>${title} </h2>
-            <h3>${author}</h3>
+            <h3>${title} </h3>
+            <h4>${author}</h4>
             <p><b>Published:</b> ${release}</p>
             <p><b>Length:</b> ${pages} pages</p>
             <p class="rating">${rating.length > 0 ? "<b>Rating: </b>" + avgRating(rating) : "" } </p>
@@ -59,7 +75,7 @@ const renderBooks = async(arr, heading) => {
             }
         }
 
-        books.append(li)
+        ul.append(li)
     })
 }
 
@@ -74,9 +90,3 @@ const fetchBooks = async() => {
     }
 }
 
-// ----------------------- HEADER LOGO BUTTON -----------------------
-document.querySelector("#startPage").addEventListener("click", () => {
-    removeClass([booksWrapper], "hidden")
-    addClass([forms], "hidden")
-    renderBooks(booksArr, "Books")
-})

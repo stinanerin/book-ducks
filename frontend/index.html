@@ -28,6 +28,7 @@
     <script src="js/rating.js" defer></script>
     <script src="js/tbr.js" defer></script>
     <script src="js/account.js" defer></script>
+    <script src="js/sortBooks.js" defer></script>
     <script src="js/colorTheme.js" defer></script>
     <script src="js/index.js" defer></script>
     <!-- CSS -->
@@ -143,9 +144,15 @@
 
     <!--! BOOKS GRID-->
         <div class="container text-center" id="booksWrapper">
-            <h2></h2>
-            
-            <ul id="books" class="books-grid  row gy-5 ">
+            <div id="sortingDiv" class="text-start">
+                
+            </div>
+
+            <ul id="rated" class="books-grid row gy-5 mt-5">
+                
+            </ul>
+
+            <ul id="books" class="books-grid row gy-5 mt-5">
                 
             </ul>
         </div>

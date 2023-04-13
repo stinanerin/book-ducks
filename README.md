@@ -10,4 +10,6 @@ School project for interaction with CMS course.
 
 ### Todo
 
-* finish rating - bug with clicked stars
+<!-- * finish rating - bug with clicked stars -->
+
+* if a user markes a tbr book as rated move it up directly
