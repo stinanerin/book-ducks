@@ -1,7 +1,9 @@
+const sortingDiv = document.querySelector("#sortingDiv")
 
 // ----------------------- ACCOUNT ICON -----------------------
 
 document.querySelector('#account').addEventListener("click", async() => {
+    //todo bryt ut
     if(sessionStorage.getItem("token")) {
         /* If a user is signed in - fetch users TBR-list of book IDs */
         const res = await fetchActiveUser()
@@ -15,45 +17,21 @@ document.querySelector('#account').addEventListener("click", async() => {
             //todo! Add display
             console.log("you have no books");
         }
+
         /* Filter global booksArr for the users tbr books IDs --> Render them */
         //todo break out filter function
         const tbrArr = booksArr.filter(book => tbr.map(book => +book.bookId).includes(book.id))   
         renderBooks(tbrArr, "TBR")
         const ratedBooks = booksArr.filter(book => ratings.map(book => +book.bookId).includes(book.id))   
         renderBooks(ratedBooks, "Rated", ulRating)
-        
-        const select = document.querySelector('#sorting');
-        
-        select && select.addEventListener("change", () => {
-            let sortedArr
 
-            if(select.value === "title") {
-
-                sortedArr = sortStringArr(ratedBooks, "title")
-
-            } else if(select.value === "author") {
-
-                sortedArr = sortStringArr(ratedBooks, "author") 
-
-            } else if(select.value === "rating") {
-                
-                sortedArr = ratings
-                .sort(({rating: a}, {rating: b}) => b - a)
-                    .map(rating => booksArr.find(book => +book.id === +rating.bookId))
-                    .filter(book => book !== undefined)
-            
-            }
-            renderBooks(sortedArr, "Rated", ulRating)
-        })
-
+        renderSelect(booksWrapper, ratedBooks)
+    
+        sortArray(ratedBooks, ratings)
+    
     } else {
         addClass([booksWrapper], "hidden")
         removeClass([forms], "hidden")
     }
 })
 
-const sortStringArr = (arr, key) => {
-    return [...arr].sort(({attributes: a}, {attributes : b}) => {
-        return a[key].localeCompare(b[key])
-    })
-}

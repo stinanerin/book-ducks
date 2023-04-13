@@ -28,6 +28,7 @@
     <script src="js/rating.js" defer></script>
     <script src="js/tbr.js" defer></script>
     <script src="js/account.js" defer></script>
+    <script src="js/sortBooks.js" defer></script>
     <script src="js/colorTheme.js" defer></script>
     <script src="js/index.js" defer></script>
     <!-- CSS -->
@@ -143,17 +144,9 @@
 
     <!--! BOOKS GRID-->
         <div class="container text-center" id="booksWrapper">
-
-            <fieldset>
-                <legend>Sort by</legend>  
-                <select class="form-select" id="sorting">
-                    <option value="" hidden disabled selected>Sort by</option>
-                    <option value="unsortered">Unsortered</option>
-                    <option value="title">Title(A-Z)</option>
-                    <option value="author">Author(A-Z)</option>
-                    <option value="rating">Rating</option>
-                </select>
-            </fieldset>
+            <div id="sortingDiv" class="text-start">
+                
+            </div>
 
             <ul id="rated" class="books-grid row gy-5 mt-5">
                 

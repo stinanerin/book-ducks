@@ -90,9 +90,3 @@ const fetchBooks = async() => {
     }
 }
 
-// ----------------------- HEADER LOGO BUTTON -----------------------
-document.querySelector("#startPage").addEventListener("click", () => {
-    removeClass([booksWrapper], "hidden")
-    addClass([forms], "hidden")
-    renderBooks(booksArr, "Books")
-})

@@ -3,7 +3,6 @@ console.log("Book Ducks");
 // Checks if user already has an ongoin login session
 checkSession()
 
-
 const fetchActiveUser = async() => {
     //todo! Add params
     try {
@@ -19,3 +18,12 @@ const fetchActiveUser = async() => {
         console.log(err);
     }
 }
+
+
+// ----------------------- HEADER LOGO BUTTON -----------------------
+document.querySelector("#startPage").addEventListener("click", () => {
+  removeClass([booksWrapper], "hidden")
+  addClass([forms], "hidden")
+  renderBooks(booksArr, "Books")
+  clearElem([sortingDiv])
+})
