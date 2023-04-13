@@ -44,6 +44,7 @@ const login = async() => {
 
 // ----------------------- ADD USER TO SESSION STORAGE -----------------------
 const addSession = (res) => {
+    //todo create object!!
     sessionStorage.setItem("token", res.data.jwt);
     sessionStorage.setItem("user", res.data.user.username);
     sessionStorage.setItem("userId", res.data.user.id);
