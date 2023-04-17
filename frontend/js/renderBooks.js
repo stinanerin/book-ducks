@@ -27,9 +27,9 @@ const renderBooks = async(arr, heading, ul) => {
     /* If a user is signed in - fetch their rated books from strapi */
     if(loggedInUser) {
         const res = await fetchActiveUser()
-        usersRatedBooks = res.data.ratedBooks
+        /* Assings users rated books to globally available variable - usersRatedBooks */
+        usersRatedBooks = res.data.ratedBooks 
     }
-    //todo visa bara stjärnor när en användare är inloggad
     
     arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
         const li = document.createElement("li")
@@ -53,7 +53,8 @@ const renderBooks = async(arr, heading, ul) => {
         `
         ul.append(li)
 
-        /* If user is logged in - apply eventlisteners to stars */
+        // todo bryt ut?
+        /* If user is logged in - renders stars for each book*/
         if(loggedInUser) {
             li.querySelector(".book-rating").innerHTML = `
             <label>
@@ -71,6 +72,7 @@ const renderBooks = async(arr, heading, ul) => {
             <label>
                 <input type="radio" name="rate" value="5">
             </label>`
+            /* Apply eventlisteners to stars --> updates API*/
             starRating(li)
             /* 
                 If bookId in userRatedBooks match the currently rendered book's id --> 
