@@ -29,6 +29,7 @@ const renderBooks = async(arr, heading, ul) => {
         const res = await fetchActiveUser()
         usersRatedBooks = res.data.ratedBooks
     }
+    //todo visa bara stjärnor när en användare är inloggad
     
     arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
         const li = document.createElement("li")
@@ -37,21 +38,7 @@ const renderBooks = async(arr, heading, ul) => {
         li.innerHTML  += `
             <div><img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/></div>
             <div class="book-rating pb-3">
-                <label>
-                    <input type="radio" name="rate" value="1">
-                </label>
-                <label>
-                    <input type="radio" name="rate" value="2">
-                </label>
-                <label>
-                    <input type="radio" name="rate"  value="3">
-                </label>
-                <label>
-                    <input type="radio" name="rate"  value="4">
-                </label>
-                <label>
-                    <input type="radio" name="rate" value="5">
-                </label>
+                        
             </div>
             <div class="title d-flex justify-content-center align-items-center">
                 <h3>${title} </h3>
@@ -64,9 +51,26 @@ const renderBooks = async(arr, heading, ul) => {
                 <p class="rating px-3"><i class="fa-solid fa-star"></i> <b>${rating.length > 0 ? avgRating(rating) : "0" }</b></p>
             </div>
         `
+        ul.append(li)
 
         /* If user is logged in - apply eventlisteners to stars */
         if(loggedInUser) {
+            li.querySelector(".book-rating").innerHTML = `
+            <label>
+                <input type="radio" name="rate" value="1">
+            </label>
+            <label>
+                <input type="radio" name="rate" value="2">
+            </label>
+            <label>
+                <input type="radio" name="rate"  value="3">
+            </label>
+            <label>
+                <input type="radio" name="rate"  value="4">
+            </label>
+            <label>
+                <input type="radio" name="rate" value="5">
+            </label>`
             starRating(li)
             /* 
                 If bookId in userRatedBooks match the currently rendered book's id --> 
@@ -79,7 +83,6 @@ const renderBooks = async(arr, heading, ul) => {
             }
         }
 
-        ul.append(li)
     })
 }
 

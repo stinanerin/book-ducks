@@ -77,6 +77,7 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder, select:not(in
   label {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
+    padding-left: 1.5rem;
   }
   .alert-danger {
     background: hsl(354deg, 80%, 76%);
