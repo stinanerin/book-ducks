@@ -79,7 +79,7 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder, select:not(in
     font-weight: 500;
   }
   .alert-danger {
-    background: linear-gradient(270deg, rgba(255, 255, 255, 0.26) 0%, rgba(249, 241, 241, 0.202) 100%), -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.66) 0%, rgba(253, 253, 253, 0) 100%);
+    background: hsl(354deg, 80%, 76%);
     border-radius: 50px;
     border-color: hsl(0deg, 100%, 51%);
     padding: 0.8rem 1.5rem;
@@ -96,27 +96,6 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder, select:not(in
     -webkit-text-fill-color: hsl(0deg, 100%, 51%);
     box-shadow: 0 0 1px 0.1em hsl(0deg, 100%, 51%) inset;
     -webkit-box-shadow: 0 0 1px 0.1em hsl(0deg, 100%, 51%) inset;
-  }
-  .error::-moz-placeholder {
-    background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  .error:-ms-input-placeholder {
-    background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  .error::placeholder {
-    background: linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%)), -webkit-linear-gradient(hsl(0deg, 100%, 51%), hsl(354deg, 92%, 66%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
   }
   .error:-webkit-autofill, .error:-webkit-autofill:focus, .error:-webkit-autofill:active {
     color: hsl(0deg, 100%, 51%);
@@ -209,7 +188,7 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder, select:not(in
 body.minimalist input:active, body.minimalist input:focus,
 body.minimalist input:-webkit-autofill,
 body.minimalist input:-webkit-autofill:focus,
-body.minimalist input:-webkit-autofill:active, body.minimalist .selectdiv:after, body.minimalist select, body.minimalist select::placeholder, body.minimalist input, body.minimalist input::-webkit-input-placeholder {
+body.minimalist input:-webkit-autofill:active, body.minimalist .selectdiv:after, body.minimalist select, body.minimalist select::placeholder, body.minimalist input, body.minimalist input::-webkit-input-placeholder, body.minimalist .error:focus {
     color: hsl(0deg, 0%, 0%);
   }
   body.minimalist .primary-btn, body.minimalist .secondary-btn {
@@ -231,7 +210,7 @@ body.minimalist input:-webkit-autofill:active, body.minimalist .selectdiv:after,
 body.midnight input:active, body.midnight input:focus,
 body.midnight input:-webkit-autofill,
 body.midnight input:-webkit-autofill:focus,
-body.midnight input:-webkit-autofill:active, body.midnight .selectdiv:after, body.midnight select, body.midnight select::placeholder, body.midnight input, body.midnight input::-webkit-input-placeholder {
+body.midnight input:-webkit-autofill:active, body.midnight .selectdiv:after, body.midnight select, body.midnight select::placeholder, body.midnight input, body.midnight input::-webkit-input-placeholder, body.midnight .error:focus {
     color: hsl(0deg, 0%, 100%);
   }
   body.midnight .primary-btn, body.midnight .secondary-btn {

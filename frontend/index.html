@@ -98,7 +98,7 @@
                         <!-- CONF. PWD -->
                         <div class="form-group">
                             <label for="pwdConf" class="form-label">Password confirmation</label>
-                            <input class="form-control input" id="pwdConf" type="password" placeholder="Confirm password" required/>
+                            <input class="form-control input " id="pwdConf" type="password" placeholder="Confirm password" required/>
                         </div>
                         <!-- SUBMIT -->
                         <div class="d-flex justify-content-center my-5">
@@ -119,10 +119,12 @@
                         <!-- EMAIL -->
                         <div class="form-group">
                             <label for="loginEmail" class="form-label">Email address</label>
-                            <input class="form-control input" id="loginEmail" type="email" placeholder="Enter email" required/>
+                            <input class="form-control input alert-danger" id="loginEmail" type="email" placeholder="Enter email" required/>
                         </div>
-                        <!-- ALERT -->
-                        <div class="login-alert-container"></div>
+                        <!--! ALERT -->
+                        <div id="login-alert-container">
+                            
+                        </div>
                         <!-- PWD -->
                         <div class="form-group">
                             <label for="loginPWD" class="form-label">Password</label>

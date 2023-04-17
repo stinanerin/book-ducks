@@ -8,7 +8,7 @@
     input:active, input:focus, 
     input:-webkit-autofill, 
     input:-webkit-autofill:focus,
-    input:-webkit-autofill:active, .selectdiv:after, select, select::placeholder, input, input::-webkit-input-placeholder
+    input:-webkit-autofill:active, .selectdiv:after, select, select::placeholder, input, input::-webkit-input-placeholder, .error:focus
     {
         color: $text;
     }
