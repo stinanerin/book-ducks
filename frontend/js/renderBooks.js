@@ -23,6 +23,16 @@ const renderBooks = async(arr, heading, ul) => {
     h2.innerText = heading
     ul.prepend(h2)
 
+    /* If passed in array contians no books - display message */
+    if(arr.length === 0) {
+        const p = createElement("p", "my-5 text-center")
+        p.innerText = `You have not ${heading === "Rated" ? "rated any books yet." : "added any books to your TBR list yet."}`
+        ul.append(p)
+        return
+    }
+
+    console.log("hej denna rad kördes");
+
     const loggedInUser = sessionStorage.getItem("token") ? true : false
 
     /* If a user is signed in - fetch their rated books from strapi */
@@ -34,8 +44,7 @@ const renderBooks = async(arr, heading, ul) => {
     }
     
     arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
-        const li = document.createElement("li")
-        li.className = "col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-between";
+        const li = createElement("li", "col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-between")
         li.dataset.id = id
         li.innerHTML  += `
             <div><img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/></div>
