@@ -28,11 +28,9 @@ const renderBooks = async(arr, heading, ul) => {
     /* If a user is signed in - fetch their rated books from strapi */
     if(loggedInUser) {
         const res = await fetchActiveUser()
-        /* Assings users rated books to globally available variable - usersRatedBooks */
+        /* Assings users rated books & tbr books to globally available variables - usersRatedBooks & tbr */
         usersRatedBooks = res.data.ratedBooks
-        //! nytt
         tbr = res.data.tbr
-        console.log("tbr", tbr);
     }
     
     arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {

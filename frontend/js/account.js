@@ -8,15 +8,7 @@ document.querySelector('#account').addEventListener("click", async() => {
         const res = await fetchActiveUser()
         const ratings = res.data.ratedBooks
         const tbr = res.data.tbr
-        if(tbr.length == 0) {
-            //todo! Add display
-            console.log("you have no books");
-        }
-        if(ratings.length == 0) {
-            //todo! Add display
-            console.log("you have no books");
-        }
-
+    
         /* Filter global booksArr for the users tbr books IDs --> Render them */
         //todo break out filter function
         const tbrArr = booksArr.filter(book => tbr.map(book => +book.bookId).includes(book.id))   
