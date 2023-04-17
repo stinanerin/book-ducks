@@ -70,8 +70,6 @@ const checkSession = () => {
         userNameDisplay.innerText = toUpperCaseStr(sessionStorage.getItem("user"));
         addClass([forms], "hidden")
         removeClass([logoutWrapper], "hidden")
-
-        //! obs behöver man tänka på att undvika så två kan vara inloggade samtidigt?
     } else {
         userNameDisplay.innerText = ""
         addClass([logoutWrapper], "hidden")

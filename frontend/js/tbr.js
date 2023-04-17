@@ -1,7 +1,6 @@
-
 const updateTbr = async(arr) => {
     try {
-        const res = await axios.put("http://localhost:1337/api/user/me",
+        return await axios.put("http://localhost:1337/api/user/me",
             {
                 data: {
                     tbr: arr
@@ -15,6 +14,7 @@ const updateTbr = async(arr) => {
             }
         )
     } catch(err) {
+        //todo
         console.log(err);
     }
 }
@@ -30,8 +30,10 @@ const addToTbr = async(btn) => {
         tbr.push({
             bookId: bookID
         })
-        updateTbr(tbr)
-        btn.innerHTML = `Added <i class="fa-solid fa-check"></i>`
-        btn.disabled = true;
+        const res = await updateTbr(tbr)
+        if(res.status === 200) {
+            btn.innerHTML = `Added <i class="fa-solid fa-check"></i>`
+            btn.disabled = true;
+        }
     }
 }

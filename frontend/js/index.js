@@ -1,7 +1,6 @@
-console.log("Book Ducks");
-
 // Checks if user already has an ongoin login session
 checkSession()
+fetchClrTheme()
 
 const fetchActiveUser = async() => {
     //todo! Add params
@@ -18,7 +17,6 @@ const fetchActiveUser = async() => {
         console.log(err);
     }
 }
-
 
 // ----------------------- HEADER LOGO BUTTON -----------------------
 document.querySelector("#startPage").addEventListener("click", () => {

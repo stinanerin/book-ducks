@@ -1,7 +1,6 @@
 const sortingDiv = document.querySelector("#sortingDiv")
 
 // ----------------------- ACCOUNT ICON -----------------------
-
 document.querySelector('#account').addEventListener("click", async() => {
     //todo bryt ut
     if(sessionStorage.getItem("token")) {

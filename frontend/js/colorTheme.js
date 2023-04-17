@@ -7,10 +7,8 @@ const fetchClrTheme = async() => {
         console.log(err);
     }
 }
-fetchClrTheme()
 
 const applyTheme = (theme) => {
-    console.log(theme);
     const body = document.querySelector('body');
     if(theme === "minimalist") {
        addClass([body], theme)

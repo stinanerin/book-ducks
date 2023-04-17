@@ -38,6 +38,7 @@ const register = async () => {
         }
         addSession(res)
     } catch(error) {
+        //todo
         console.log(error.response.data.error.message);
         feedback.innerText = error.response.data.error.message;
         feedback.style.color = "red"

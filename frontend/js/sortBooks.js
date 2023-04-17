@@ -3,7 +3,6 @@ const sortStringArr = (arr, key) => {
         return a[key].localeCompare(b[key])
     })
 }
-// <i class="fa-solid fa-angle-down"></i>
 
 const renderSelect = () => {
     sortingDiv.innerHTML = `
@@ -16,9 +15,7 @@ const renderSelect = () => {
             <option value="rating">Rating</option>
         </select>
     </label> 
-    </div>
-
-    `
+    </div>`
 }
  
 const sortArray = (ratedBooks, ratings) => {

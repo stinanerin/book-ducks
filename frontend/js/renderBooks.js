@@ -41,9 +41,7 @@ const renderBooks = async(arr, heading, ul) => {
         li.dataset.id = id
         li.innerHTML  += `
             <div><img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/></div>
-            <div class="book-rating pb-3">
-                        
-            </div>
+            <div class="book-rating pb-3"></div>
             <div class="title d-flex justify-content-center align-items-center">
                 <h3>${title} </h3>
             </div>
@@ -103,6 +101,7 @@ const fetchBooks = async() => {
         booksArr = res.data.data
         renderBooks(booksArr, "Books")
     } catch(err) {
+        //todo
         console.log(err);
     }
 }

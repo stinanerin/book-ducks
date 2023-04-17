@@ -102,6 +102,7 @@ const updateUsersRatings = async(arr) => {
             }
         )
     } catch(err) {
+        //todo
         console.log(err);
     }
 }
@@ -111,6 +112,7 @@ const updateUsersRatings = async(arr) => {
 * @param {string}  objKey - the object key you want to examine
 * @param {number}  value - the specified value you want to find & remove
 */ 
+
 const removeRating = (arr, objKey, value) => {
     /* If user already has rated book, remove old rating */
     if(arr.find(elem => +elem[objKey] === +value)) {
