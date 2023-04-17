@@ -19,7 +19,7 @@ const renderBooks = async(arr, heading, ul) => {
     ul.innerHTML = ""
     ulRating.innerHTML = ""
 
-    const h2 = document.createElement("h2")
+    const h2 = createElement("h2")
     h2.innerText = heading
     ul.prepend(h2)
 
@@ -57,7 +57,7 @@ const renderBooks = async(arr, heading, ul) => {
             <p class="pt-3"><b>${pages}</b> pages</p>
             <div class="d-flex justify-content-center align-items-center pt-3">
                 <div class="book-footer" ></div>
-                <p class="rating px-3"><i class="fa-solid fa-star"></i> <b>${rating.length > 0 ? avgRating(rating) : "0" }</b></p>
+                <p class="px-3"><i class="fa-solid fa-star"></i> <b><span class="rating">${rating.length > 0 ? avgRating(rating) : "0" }</span></b></p>
             </div>
         `
         ul.append(li)
