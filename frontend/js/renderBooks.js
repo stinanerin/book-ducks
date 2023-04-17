@@ -3,6 +3,7 @@ const ulRating = booksWrapper.querySelector("#rated")
 
 let booksArr;
 let usersRatedBooks;
+let tbr;
 
 /**
 * @param {array} arr - strapi array of book objects
@@ -28,7 +29,10 @@ const renderBooks = async(arr, heading, ul) => {
     if(loggedInUser) {
         const res = await fetchActiveUser()
         /* Assings users rated books to globally available variable - usersRatedBooks */
-        usersRatedBooks = res.data.ratedBooks 
+        usersRatedBooks = res.data.ratedBooks
+        //! nytt
+        tbr = res.data.tbr
+        console.log("tbr", tbr);
     }
     
     arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
@@ -84,9 +88,11 @@ const renderBooks = async(arr, heading, ul) => {
                 activateStarsUpToIndex(--book.rating, stars)
             }
 
-            li.querySelector(".book-footer").innerHTML = `<button class="btn secondary-btn" onclick="addToTbr(this)">Want to read <i class="fa-solid fa-plus"></i></button>`
+            /* If user has already rated book - do not render tbr btn  */
+            if(!tbr.find(book => +book.bookId === id)) {
+                li.querySelector(".book-footer").innerHTML = `<button class="btn secondary-btn" onclick="addToTbr(this)">Want to read <i class="fa-solid fa-plus"></i></button>`
+            } 
         }
-
     })
 }
 

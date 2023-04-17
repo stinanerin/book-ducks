@@ -20,14 +20,18 @@ const updateTbr = async(arr) => {
 }
 
 const addToTbr = async(btn) => {
-    //todo! Clear user frpm adding mutlitple books til lsit, as to not add data unnecessarily
     const bookID = btn.closest("li").dataset.id
     const res = await fetchActiveUser()
     const tbr = res.data.tbr
-    console.log("bookId", bookID, "tbr pre psuh", tbr);
-    tbr.push({
-        bookId: bookID
-    })
-    console.log("tbr after push",tbr);
-    updateTbr(tbr)
+    if(tbr.find(book => book.bookId === bookID)) {
+        /* If user were to remove disabled attribute from clicked btn and click again - the btn is remvoed from the DOM  */
+        btn.remove()
+    } else {
+        tbr.push({
+            bookId: bookID
+        })
+        updateTbr(tbr)
+        btn.innerHTML = `Added <i class="fa-solid fa-check"></i>`
+        btn.disabled = true;
+    }
 }
