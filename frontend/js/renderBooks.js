@@ -31,8 +31,6 @@ const renderBooks = async(arr, heading, ul) => {
         return
     }
 
-    console.log("hej denna rad kördes");
-
     const loggedInUser = sessionStorage.getItem("token") ? true : false
 
     /* If a user is signed in - fetch their rated books from strapi */
