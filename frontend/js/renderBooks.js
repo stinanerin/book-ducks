@@ -46,15 +46,15 @@ const renderBooks = async(arr, heading, ul) => {
             <h4 class="pt-3">by <i>${author}</i></h4>
             <p class="pt-3"><b>Published:</b> ${release}</p>
             <p class="pt-3"><b>${pages}</b> pages</p>
-            <div class="d-flex justify-content-center align-items-center pt-3"> 
-                <button class="btn secondary-btn" onclick="addToTbr(this)">Want to read <i class="fa-solid fa-plus"></i></button>
+            <div class="d-flex justify-content-center align-items-center pt-3">
+                <div class="book-footer" ></div>
                 <p class="rating px-3"><i class="fa-solid fa-star"></i> <b>${rating.length > 0 ? avgRating(rating) : "0" }</b></p>
             </div>
         `
         ul.append(li)
 
         // todo bryt ut?
-        /* If user is logged in - renders stars for each book*/
+        /* If user is logged in - renders stars & tbr btn */
         if(loggedInUser) {
             li.querySelector(".book-rating").innerHTML = `
             <label>
@@ -83,6 +83,8 @@ const renderBooks = async(arr, heading, ul) => {
                 const stars = li.querySelectorAll("input[name='rate']")
                 activateStarsUpToIndex(--book.rating, stars)
             }
+
+            li.querySelector(".book-footer").innerHTML = `<button class="btn secondary-btn" onclick="addToTbr(this)">Want to read <i class="fa-solid fa-plus"></i></button>`
         }
 
     })

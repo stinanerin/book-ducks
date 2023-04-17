@@ -21,11 +21,13 @@ const updateTbr = async(arr) => {
 
 const addToTbr = async(btn) => {
     //todo! Clear user frpm adding mutlitple books til lsit, as to not add data unnecessarily
-    const bookID = btn.parentElement.dataset.id
+    const bookID = btn.closest("li").dataset.id
     const res = await fetchActiveUser()
     const tbr = res.data.tbr
     console.log("bookId", bookID, "tbr pre psuh", tbr);
-    tbr.push({bookId: bookID})
+    tbr.push({
+        bookId: bookID
+    })
     console.log("tbr after push",tbr);
     updateTbr(tbr)
 }
