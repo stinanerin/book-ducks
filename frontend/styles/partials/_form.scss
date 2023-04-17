@@ -1,38 +1,30 @@
-form {
 
     input, input:active, input:focus, 
     input:-webkit-autofill, 
     input:-webkit-autofill:focus,
-    input:-webkit-autofill:active {
+    input:-webkit-autofill:active, select {
         &:not(input[type="radio"]) {
             border-radius: $radius-max;
             padding: 0.8rem 1.5rem;
             border: none;
             -webkit-appearance: none;
             appearance: none; 
-            background: $see-through-gradient ;
+            background: $see-through-gradient;
+            font-weight: 600;
+            font-family: $body;
             &::placeholder {
-                font-weight: 700;
+                font-weight: 600;
                 font-family: $body;
-                background: linear-gradient($primary-300, $accent-300 ),
-                    -webkit-linear-gradient($primary-300, $accent-300 );
-                background-clip: text;
-                -webkit-background-clip: text;
-                color: transparent;
-                -webkit-text-fill-color: transparent;
             }
         }
     }
-    input:active, input:focus, input:-webkit-autofill:focus, input:-webkit-autofill:active  {
+    input:active, input:focus, input:-webkit-autofill:focus, input:-webkit-autofill:active, select:hover  {
         @include glow;
     }
-    
     label {
         font-family: $heading-primary;
-        color: $p-white;
         font-weight: 500;
     }
-    
     .alert-danger {
         background: $see-through-gradient ;
         border-radius: $radius-max;
@@ -66,22 +58,11 @@ form {
     
             box-shadow: 0 0 1px 0.1em $danger-500 inset;
             -webkit-box-shadow: 0 0 1px 0.1em $danger-500 inset;
-            
         }
         &:active, &:focus, &:-webkit-autofill:focus, &:-webkit-autofill:active  {
             @include glow($danger-500);
-            &::placeholder {
-                background: linear-gradient($danger-500, $danger-50),
-                    -webkit-linear-gradient($danger-500, $danger-50);
-                background-clip: text;
-                -webkit-background-clip: text;
-                color: transparent;
-                -webkit-text-fill-color: transparent;
-            }
         }
     }
     .form-text {
-        color:$p-white;
         padding-left: 1.5rem;
     }
-}

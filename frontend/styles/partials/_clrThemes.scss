@@ -1,0 +1,10 @@
+body {
+    &.minimalist {
+        @include background-theme($primary-gradient...);
+        @include color-theme($p-black, $accent-50);
+    }
+    &.midnight {
+        @include background-theme($secondary-gradient...);
+        @include color-theme($p-white, $accent-50);
+    }
+}

@@ -3,9 +3,11 @@ const sortStringArr = (arr, key) => {
         return a[key].localeCompare(b[key])
     })
 }
+// <i class="fa-solid fa-angle-down"></i>
 
 const renderSelect = () => {
     sortingDiv.innerHTML = `
+    <div class="selectdiv">
     <label for="sorting" class="text-start">Sort by 
         <select class="form-select" id="sorting">
             <option value="unsortered">Unsortered</option>
@@ -14,6 +16,8 @@ const renderSelect = () => {
             <option value="rating">Rating</option>
         </select>
     </label> 
+    </div>
+
     `
 }
  

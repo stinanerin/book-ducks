@@ -3,4 +3,29 @@
     -webkit-box-shadow: 0 0 1em 0.2em $color; 
 };
 
+@mixin color-theme($text, $details) {
+    h1,h2,h3,h4,h5,h6, p, label, i, .primary-btn, .secondary-btn, .form-text,
+    input:active, input:focus, 
+    input:-webkit-autofill, 
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active, .selectdiv:after, select, select::placeholder, input, input::-webkit-input-placeholder
+    {
+        color: $text;
+    }
+    .primary-btn, .secondary-btn {
+        background-color: $details;
+        &:hover {
+            @include glow($details);
+            background-color: transparent;
+        }
+    }
+    .active, .fa-star, .link {
+        color: $details;
+    }
+}
 
+@mixin background-theme($bg-1, $bg-2, $bg-3) {
+    background: $bg-3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $bg-1, $bg-2, $bg-3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $bg-1, $bg-2, $bg-3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

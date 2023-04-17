@@ -32,11 +32,11 @@ const renderBooks = async(arr, heading, ul) => {
     
     arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
         const li = document.createElement("li")
-        li.className = "col-6 col-md-4 col-lg-3 ";
+        li.className = "col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-between";
         li.dataset.id = id
         li.innerHTML  += `
-            <img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/>
-            <div class="book-rating">
+            <div><img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/></div>
+            <div class="book-rating pb-3">
                 <label>
                     <input type="radio" name="rate" value="1">
                 </label>
@@ -53,12 +53,16 @@ const renderBooks = async(arr, heading, ul) => {
                     <input type="radio" name="rate" value="5">
                 </label>
             </div>
-            <h3>${title} </h3>
-            <h4>${author}</h4>
-            <p><b>Published:</b> ${release}</p>
-            <p><b>Length:</b> ${pages} pages</p>
-            <p class="rating">${rating.length > 0 ? "<b>Rating: </b>" + avgRating(rating) : "" } </p>
-            <button class="btn" onclick="addToTbr(this)">+</button>
+            <div class="title d-flex justify-content-center align-items-center">
+                <h3>${title} </h3>
+            </div>
+            <h4 class="pt-3">by <i>${author}</i></h4>
+            <p class="pt-3"><b>Published:</b> ${release}</p>
+            <p class="pt-3"><b>${pages}</b> pages</p>
+            <div class="d-flex justify-content-center align-items-center pt-3"> 
+                <button class="btn secondary-btn" onclick="addToTbr(this)">Want to read <i class="fa-solid fa-plus"></i></button>
+                <p class="rating px-3"><i class="fa-solid fa-star"></i> <b>${rating.length > 0 ? avgRating(rating) : "0" }</b></p>
+            </div>
         `
 
         /* If user is logged in - apply eventlisteners to stars */

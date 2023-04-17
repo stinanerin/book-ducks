@@ -36,11 +36,10 @@
 </head>
 
 <body>
-    
     <header class="d-flex justify-content-between p-4">
         <button class="btn" id="startPage">
-            <div class="d-flex">
-                <img class="logo" src="assets/icons/books-stack-of-three.svg" alt="Book Ducks Logo" aria-hidden="true" />
+            <div class="d-flex  align-items-center">
+                <i class="fa-solid fa-book logo" aria-hidden="true" ></i>
                 <h1>Book Ducks</h1>
             </div>
         </button>
@@ -52,14 +51,14 @@
                 </button>
             </div>
             <div id="logout" class="hidden">
-                <button class="btn" aria-label="Log out button"><img src="assets/icons/logout.svg" alt="" aria-hidden="true" /></button>
+                <button class="btn" aria-label="Log out button"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true" ></i></button>
             </div>
         </div>
     </header>
 
     <main>
     <!--! FORMS -->
-        <div class="pt-5 hidden" id="formWrapper">
+        <div class="hidden pt-5" id="formWrapper">
             <p id="feedback" class="text-center"></p>
             <!--! REGISTER FORM -->
             <div id="registerWrapper" class="hidden">
@@ -109,13 +108,13 @@
                 </form>
                  <!-- LINK LOGIN -->
                  <div class="text-center pb-5">
-                    <p>Already registered? <span class="link" id="loginLink">Log in here</span></p>
+                    <p>Already registered? <span class="link" id="loginLink">Log in</span></p>
                 </div>
             </div>
             <!--! LOGIN FORM -->
             <div id="loginWrapper">
                 <form class="container main" id="loginForm">
-                    <h2 class="text-center">Sign in</h2>
+                    <h2 class="text-center">Welcome back</h2>
                     <div class="row gy-3 ">
                         <!-- EMAIL -->
                         <div class="form-group">
@@ -132,28 +131,28 @@
                     </div>
                     <!-- SUBMIT -->
                     <div class="d-flex justify-content-center my-5">
-                        <button class="btn primary-btn" type="submit">Sign in</button>
+                        <button class="btn primary-btn" type="submit">Log in</button>
                     </div>
                 </form>
                 <!-- LINK REGISTER FORM  -->
                 <div class="text-center pb-5">
-                    <p>Not registered? <span class="link" id="registerLink">Register now</span></p>
+                    <p>Don't have an account? <span class="link" id="registerLink">Register now</span></p>
                 </div>
             </div>
         </div> 
 
     <!--! BOOKS GRID-->
-        <div class="container text-center" id="booksWrapper">
+        <div class="text-center pt-5" id="booksWrapper">
             <div id="sortingDiv" class="text-start">
                 
             </div>
 
-            <ul id="rated" class="books-grid row gy-5 mt-5">
-                
+            <ul id="rated" class="books-grid row gy-5 pt-5">
+            
             </ul>
 
-            <ul id="books" class="books-grid row gy-5 mt-5">
-                
+            <ul id="books" class="books-grid row gy-5 pt-5">
+            
             </ul>
         </div>
 
