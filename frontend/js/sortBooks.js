@@ -6,6 +6,7 @@ const sortStringArr = (arr, key) => {
 
 const renderSelect = () => {
     sortingDiv.innerHTML = `
+    <div class="selectdiv">
     <label for="sorting" class="text-start">Sort by 
         <select class="form-select" id="sorting">
             <option value="unsortered">Unsortered</option>
@@ -14,7 +15,7 @@ const renderSelect = () => {
             <option value="rating">Rating</option>
         </select>
     </label> 
-    `
+    </div>`
 }
  
 const sortArray = (ratedBooks, ratings) => {

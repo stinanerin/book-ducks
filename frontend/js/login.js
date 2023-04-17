@@ -2,6 +2,7 @@ const forms  = document.querySelector('#formWrapper'),
     loginLink  = document.querySelector('#loginLink'),
     registerLink  = document.querySelector('#registerLink'),
     loginContainer =  document.querySelector("#loginWrapper"),
+    loginAlert =  document.querySelector("#login-alert-container"),
     registerContainer = document.querySelector("#registerWrapper"),
     registerUserForm = document.querySelector("#registerUser"),
     feedback = document.querySelector("#feedback"),
@@ -37,8 +38,20 @@ const login = async() => {
         addSession(res)
         removeClass([booksWrapper], "hidden")
     } catch(err) {
-        console.log(err);
-        feedback.innerText = err;
+        loginAlert.innerHTML = `
+        <div class="alert alert-danger container" role="alert">
+            <div class="row">
+                <div class="col-auto">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="col">
+                    <span> ${err.response.data.message 
+                        ? err.response.data.message[0].messages[0].message 
+                        : err.response.data.error.message}</span>
+                </div>
+            </div>
+        </div>`
+        addClass([loginEmail, loginPwd], "error");
     }
 }
 
@@ -57,8 +70,6 @@ const checkSession = () => {
         userNameDisplay.innerText = toUpperCaseStr(sessionStorage.getItem("user"));
         addClass([forms], "hidden")
         removeClass([logoutWrapper], "hidden")
-
-        //! obs behöver man tänka på att undvika så två kan vara inloggade samtidigt?
     } else {
         userNameDisplay.innerText = ""
         addClass([logoutWrapper], "hidden")

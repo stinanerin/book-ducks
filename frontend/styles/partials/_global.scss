@@ -1,32 +1,32 @@
-* {
-    outline: 1px solid pink;
+// * {
+//     outline: 1px solid pink;
+// }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 // RESET
-
-
-// TEXT
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
+}
+// TEXT
+h1, h2, h3, h4, h5, h6, label {
     font-family: $heading-primary;
-    color: $p-white;
-    &:not(h1, h2) {
-        margin-bottom: 1em;
-    }
 }
 body {
     font-family: $body;
-    color: $p-white;
     font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
-
 html {
-    min-height: 100vh;
+    height: 100%;
 }
-// body {
-//     background: $background;
-// }
 main {
     padding: 0 1rem;
 }
@@ -34,28 +34,23 @@ main {
     max-width: 33rem;
     margin: auto;
 }
-
-i {
-    color: $p-white;
-}
 .hidden {
     display: none;
 }
 .link {
     text-decoration: underline;
-    color: $accent-800;
     cursor: pointer;
 }
-.primary-btn {
+.primary-btn, .secondary-btn {
     font-family: $heading-primary;
-    color: $p-white;
     font-weight: 500;
-    background: radial-gradient( circle 610px at 5.2% 51.6%,  $accent-100 0%, $accent-700 97.5% );
     border-radius: $radius-max;
-    padding: 0.8rem 1.5rem;
-    &:hover {
-        background: none;
-        @include glow($accent-500);
-        color: $accent-500;
+    border: none;
+    font-size: 0.8rem;
+    &.primary-btn {
+        padding: 0.8rem 1.5rem;
+    }
+    &.secondary-btn {
+        padding: 0.5rem 1rem;
     }
 }

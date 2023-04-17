@@ -1,7 +1,6 @@
-
 const updateTbr = async(arr) => {
     try {
-        const res = await axios.put("http://localhost:1337/api/user/me",
+        return await axios.put("http://localhost:1337/api/user/me",
             {
                 data: {
                     tbr: arr
@@ -15,17 +14,26 @@ const updateTbr = async(arr) => {
             }
         )
     } catch(err) {
+        //todo
         console.log(err);
     }
 }
 
 const addToTbr = async(btn) => {
-    //todo! Clear user frpm adding mutlitple books til lsit, as to not add data unnecessarily
-    const bookID = btn.parentElement.dataset.id
+    const bookID = btn.closest("li").dataset.id
     const res = await fetchActiveUser()
     const tbr = res.data.tbr
-    console.log("bookId", bookID, "tbr pre psuh", tbr);
-    tbr.push({bookId: bookID})
-    console.log("tbr after push",tbr);
-    updateTbr(tbr)
+    if(tbr.find(book => book.bookId === bookID)) {
+        /* If user were to remove disabled attribute from clicked btn and click again - the btn is remvoed from the DOM  */
+        btn.remove()
+    } else {
+        tbr.push({
+            bookId: bookID
+        })
+        const res = await updateTbr(tbr)
+        if(res.status === 200) {
+            btn.innerHTML = `Added <i class="fa-solid fa-check"></i>`
+            btn.disabled = true;
+        }
+    }
 }

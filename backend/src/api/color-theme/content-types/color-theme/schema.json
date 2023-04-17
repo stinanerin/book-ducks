@@ -16,7 +16,7 @@
       "type": "enumeration",
       "enum": [
         "minimalist",
-        "earthy"
+        "midnight"
       ],
       "required": true,
       "default": "minimalist"

@@ -3,6 +3,7 @@ const ulRating = booksWrapper.querySelector("#rated")
 
 let booksArr;
 let usersRatedBooks;
+let tbr;
 
 /**
 * @param {array} arr - strapi array of book objects
@@ -18,51 +19,67 @@ const renderBooks = async(arr, heading, ul) => {
     ul.innerHTML = ""
     ulRating.innerHTML = ""
 
-    const h2 = document.createElement("h2")
+    const h2 = createElement("h2")
     h2.innerText = heading
     ul.prepend(h2)
+
+    /* If passed in array contians no books - display message */
+    if(arr.length === 0) {
+        const p = createElement("p", "my-5 text-center")
+        p.innerText = `You have not ${heading === "Rated" ? "rated any books yet." : "added any books to your TBR list yet."}`
+        ul.append(p)
+        return
+    }
 
     const loggedInUser = sessionStorage.getItem("token") ? true : false
 
     /* If a user is signed in - fetch their rated books from strapi */
     if(loggedInUser) {
         const res = await fetchActiveUser()
+        /* Assings users rated books & tbr books to globally available variables - usersRatedBooks & tbr */
         usersRatedBooks = res.data.ratedBooks
+        tbr = res.data.tbr
     }
     
     arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
-        const li = document.createElement("li")
-        li.className = "col-6 col-md-4 col-lg-3 ";
+        const li = createElement("li", "col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-between")
         li.dataset.id = id
         li.innerHTML  += `
-            <img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/>
-            <div class="book-rating">
-                <label>
-                    <input type="radio" name="rate" value="1">
-                </label>
-                <label>
-                    <input type="radio" name="rate" value="2">
-                </label>
-                <label>
-                    <input type="radio" name="rate"  value="3">
-                </label>
-                <label>
-                    <input type="radio" name="rate"  value="4">
-                </label>
-                <label>
-                    <input type="radio" name="rate" value="5">
-                </label>
+            <div><img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/></div>
+            <div class="book-rating pb-3"></div>
+            <div class="title d-flex justify-content-center align-items-center">
+                <h3>${title} </h3>
             </div>
-            <h3>${title} </h3>
-            <h4>${author}</h4>
-            <p><b>Published:</b> ${release}</p>
-            <p><b>Length:</b> ${pages} pages</p>
-            <p class="rating">${rating.length > 0 ? "<b>Rating: </b>" + avgRating(rating) : "" } </p>
-            <button class="btn" onclick="addToTbr(this)">+</button>
+            <h4 class="pt-3">by <i>${author}</i></h4>
+            <p class="pt-3"><b>Published:</b> ${release}</p>
+            <p class="pt-3"><b>${pages}</b> pages</p>
+            <div class="d-flex justify-content-center align-items-center pt-3">
+                <div class="book-footer" ></div>
+                <p class="px-3"><i class="fa-solid fa-star"></i> <b><span class="rating">${rating.length > 0 ? avgRating(rating) : "0" }</span></b></p>
+            </div>
         `
+        ul.append(li)
 
-        /* If user is logged in - apply eventlisteners to stars */
+        // todo bryt ut?
+        /* If user is logged in - renders stars & tbr btn */
         if(loggedInUser) {
+            li.querySelector(".book-rating").innerHTML = `
+            <label>
+                <input type="radio" name="rate" value="1">
+            </label>
+            <label>
+                <input type="radio" name="rate" value="2">
+            </label>
+            <label>
+                <input type="radio" name="rate"  value="3">
+            </label>
+            <label>
+                <input type="radio" name="rate"  value="4">
+            </label>
+            <label>
+                <input type="radio" name="rate" value="5">
+            </label>`
+            /* Apply eventlisteners to stars --> updates API*/
             starRating(li)
             /* 
                 If bookId in userRatedBooks match the currently rendered book's id --> 
@@ -73,9 +90,12 @@ const renderBooks = async(arr, heading, ul) => {
                 const stars = li.querySelectorAll("input[name='rate']")
                 activateStarsUpToIndex(--book.rating, stars)
             }
-        }
 
-        ul.append(li)
+            /* If user has already rated book - do not render tbr btn  */
+            if(!tbr.find(book => +book.bookId === id)) {
+                li.querySelector(".book-footer").innerHTML = `<button class="btn secondary-btn" onclick="addToTbr(this)">Want to read <i class="fa-solid fa-plus"></i></button>`
+            } 
+        }
     })
 }
 
@@ -86,6 +106,7 @@ const fetchBooks = async() => {
         booksArr = res.data.data
         renderBooks(booksArr, "Books")
     } catch(err) {
+        //todo
         console.log(err);
     }
 }
