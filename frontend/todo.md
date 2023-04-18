@@ -2,7 +2,12 @@
 * eller taea bk i utloggat läge
     * hidden är nog ej så bra...?
 * gör så man kan markera en tbr bok som läst?
-* styla seelct klart
+<!-- * styla seelct klart -->
+* placera selcet rätt - bestäm och görrr!
+
+* error hantering 
+
+
 ### Todo
 
 <!-- * finish rating - bug with clicked stars -->

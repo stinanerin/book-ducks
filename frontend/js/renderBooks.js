@@ -4,6 +4,7 @@ const ulRating = booksWrapper.querySelector("#rated")
 let booksArr;
 let usersRatedBooks;
 let tbr;
+let ratings;
 
 /**
 * @param {array} arr - strapi array of book objects
@@ -19,9 +20,13 @@ const renderBooks = async(arr, heading, ul) => {
     ul.innerHTML = ""
     ulRating.innerHTML = ""
 
-    const h2 = createElement("h2")
+    const h2 = createElement("h2", "my-5")
     h2.innerText = heading
     ul.prepend(h2)
+
+    if(heading === "Rated") {
+        renderSelect(arr)
+    }
 
     /* If passed in array contians no books - display message */
     if(arr.length === 0) {
@@ -42,25 +47,25 @@ const renderBooks = async(arr, heading, ul) => {
     }
     
     arr.forEach(({id, attributes: {title, author, release, pages, rating,  cover : {data: {attributes: {url} }}}}) => {
-        const li = createElement("li", "col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-between")
+        const li = createElement("li", "col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-between p-0")
         li.dataset.id = id
         li.innerHTML  += `
-            <div><img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/></div>
-            <div class="book-rating pb-3"></div>
+            <div><img src="http://localhost:1337${url}" alt="Boook cover of ${title}"/></div>
+            <div class="book-rating my-3"></div>
             <div class="title d-flex justify-content-center align-items-center">
-                <h3>${title} </h3>
+                <h3>${title}</h3>
             </div>
-            <h4 class="pt-3">by <i>${author}</i></h4>
-            <div class="pt-3 d-flex justify-content-center book-info">
+            <h4 class="mt-3">by <i>${author}</i></h4>
+            <div class="mt-3 d-flex justify-content-center book-info">
                 <div class="d-flex justify-content-between align-items-center">
                     <p><b>${(release.split("-"))[0]}</b></p>
                     <i class="fa-solid fa-circle"></i>
                     <p><b>${pages}</b> pages</p>
                 </div>
             </div>
-            <div class="d-flex justify-content-center align-items-center pt-3">
+            <div class="d-flex justify-content-center align-items-center mt-3">
                 <div class="book-footer" ></div>
-                <p class="px-3"><i class="fa-solid fa-star"></i> <b><span class="rating">${rating.length > 0 ? avgRating(rating) : "0" }</span></b></p>
+                <p class="mx-3"><i class="fa-solid fa-star"></i> <b><span class="rating">${rating.length > 0 ? avgRating(rating) : "0" }</span></b></p>
             </div>
         `
         ul.append(li)
