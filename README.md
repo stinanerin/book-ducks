@@ -1,15 +1,11 @@
 # book-ducks
 
-School project for interaction with CMS course.
+School project for interaction with CMS course. A single page application...
 
 ## Tech Stack
 * Axios
 * Strapi
+    * Custom put path to update a user collections component
 * Bootstrap
 * Sass
 
-### Todo
-
-<!-- * finish rating - bug with clicked stars -->
-
-* if a user markes a tbr book as rated move it up directly

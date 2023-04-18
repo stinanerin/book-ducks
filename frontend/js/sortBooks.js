@@ -7,14 +7,13 @@ const sortStringArr = (arr, key) => {
 const renderSelect = () => {
     sortingDiv.innerHTML = `
     <div class="selectdiv">
-    <label for="sorting" class="text-start">Sort by 
+        <label for="sorting" class="text-start form-label">Sort by</label> 
         <select class="form-select" id="sorting">
             <option value="unsortered">Unsortered</option>
             <option value="title">Title(A-Z)</option>
             <option value="author">Author(A-Z)</option>
             <option value="rating">Rating</option>
         </select>
-    </label> 
     </div>`
 }
  

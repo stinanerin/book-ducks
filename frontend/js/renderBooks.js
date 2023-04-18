@@ -51,8 +51,13 @@ const renderBooks = async(arr, heading, ul) => {
                 <h3>${title} </h3>
             </div>
             <h4 class="pt-3">by <i>${author}</i></h4>
-            <p class="pt-3"><b>Published:</b> ${release}</p>
-            <p class="pt-3"><b>${pages}</b> pages</p>
+            <div class="pt-3 d-flex justify-content-center book-info">
+                <div class="d-flex justify-content-between align-items-center">
+                    <p><b>${(release.split("-"))[0]}</b></p>
+                    <i class="fa-solid fa-circle"></i>
+                    <p><b>${pages}</b> pages</p>
+                </div>
+            </div>
             <div class="d-flex justify-content-center align-items-center pt-3">
                 <div class="book-footer" ></div>
                 <p class="px-3"><i class="fa-solid fa-star"></i> <b><span class="rating">${rating.length > 0 ? avgRating(rating) : "0" }</span></b></p>

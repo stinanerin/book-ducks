@@ -1,60 +1,69 @@
 
-    input, input:active, input:focus, 
-    input:-webkit-autofill, 
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active, select {
-        &:not(input[type="radio"]) {
-            border-radius: $radius-max;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            -webkit-appearance: none;
-            appearance: none; 
-            background: $see-through-gradient;
+input, input:active, input:focus, 
+input:-webkit-autofill, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active, select {
+    &:not(input[type="radio"]) {
+        border-radius: $radius-max;
+        border: none;
+        -webkit-appearance: none;
+        appearance: none; 
+        background: $see-through-gradient;
+        font-weight: 600;
+        font-family: $body;
+        &::placeholder {
             font-weight: 600;
             font-family: $body;
-            &::placeholder {
-                font-weight: 600;
-                font-family: $body;
-            }
+        }
+        &:not(select) {
+            padding: 0.8rem 1.5rem;
         }
     }
-    input:active, input:focus, input:-webkit-autofill:focus, input:-webkit-autofill:active, select:hover  {
-        @include glow;
-    }
-    label {
-        font-family: $heading-primary;
-        font-weight: 500;
-        padding-left: 1.5rem;
-    }
-    .alert-danger {
-        background: $danger-50;
-        border-radius: $radius-max;
-        border-color: $danger-500;
-        padding: 0.8rem 1.5rem;
+}
+input:active, input:focus, input:-webkit-autofill:focus, input:-webkit-autofill:active, select:hover  {
+    @include glow;
+}
+label {
+    font-family: $heading-primary;
+    font-weight: 500;
+    padding-left: 1.5rem;
+}
+.alert-danger {
+    background: $danger-50;
+    border-radius: $radius-max;
+    border-color: $danger-500;
+    padding: 0.8rem 1.5rem;
+    color: $danger-500;
+    font-weight: 700;
+    .fa-solid {
         color: $danger-500;
-        font-weight: 700;
-        .fa-solid {
-            color: $danger-500;
-            font-size: 1.1rem;
-        }
+        font-size: 1.1rem;
     }
-    .error {
+}
+.error {
+    color: $danger-500;
+    border-color: $danger-500;
+    -webkit-text-fill-color: $danger-500;
+    box-shadow: 0 0 1px 0.1em $danger-500 inset;
+    -webkit-box-shadow: 0 0 1px 0.1em $danger-500 inset;
+    &:-webkit-autofill, &:-webkit-autofill:focus, &:-webkit-autofill:active { 
         color: $danger-500;
         border-color: $danger-500;
         -webkit-text-fill-color: $danger-500;
         box-shadow: 0 0 1px 0.1em $danger-500 inset;
         -webkit-box-shadow: 0 0 1px 0.1em $danger-500 inset;
-        &:-webkit-autofill, &:-webkit-autofill:focus, &:-webkit-autofill:active { 
-            color: $danger-500;
-            border-color: $danger-500;
-            -webkit-text-fill-color: $danger-500;
-            box-shadow: 0 0 1px 0.1em $danger-500 inset;
-            -webkit-box-shadow: 0 0 1px 0.1em $danger-500 inset;
-        }
-        &:active, &:focus, &:-webkit-autofill:focus, &:-webkit-autofill:active  {
-            @include glow($danger-500);
-        }
     }
-    .form-text {
-        padding-left: 1.5rem;
+    &:active, &:focus, &:-webkit-autofill:focus, &:-webkit-autofill:active  {
+        @include glow($danger-500);
     }
+}
+.form-text {
+    padding-left: 1.5rem;
+}
+form {
+    max-width: 33rem;
+    margin: auto;
+    h2 {
+        margin-bottom: 1em;
+    }
+}
