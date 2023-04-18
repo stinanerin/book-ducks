@@ -16,9 +16,8 @@ document.querySelector('#account').addEventListener("click", async() => {
         renderBooks(tbrArr, "TBR")
         const ratedBooks = booksArr.filter(book => ratings.map(book => +book.bookId).includes(book.id))   
         renderBooks(ratedBooks, "Rated", ulRating)
-
-        renderSelect(booksWrapper, ratedBooks)
-    
+        
+        /* Iniates event listener for select */
         sortArray(ratedBooks, ratings)
     
     } else {

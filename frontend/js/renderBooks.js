@@ -19,9 +19,14 @@ const renderBooks = async(arr, heading, ul) => {
     ul.innerHTML = ""
     ulRating.innerHTML = ""
 
-    const h2 = createElement("h2")
+    const h2 = createElement("h2", "mb-5")
     h2.innerText = heading
     ul.prepend(h2)
+
+    if(heading === "Rated") {
+        console.log("hejsan från if");
+        renderSelect()
+    }
 
     /* If passed in array contians no books - display message */
     if(arr.length === 0) {
@@ -45,10 +50,10 @@ const renderBooks = async(arr, heading, ul) => {
         const li = createElement("li", "col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-between")
         li.dataset.id = id
         li.innerHTML  += `
-            <div><img class="img-fluid p-2" src="http://localhost:1337${url}" alt="Boook cover of ${title}"/></div>
+            <div><img src="http://localhost:1337${url}" alt="Boook cover of ${title}"/></div>
             <div class="book-rating pb-3"></div>
             <div class="title d-flex justify-content-center align-items-center">
-                <h3>${title} </h3>
+                <h3>${title}</h3>
             </div>
             <h4 class="pt-3">by <i>${author}</i></h4>
             <div class="pt-3 d-flex justify-content-center book-info">

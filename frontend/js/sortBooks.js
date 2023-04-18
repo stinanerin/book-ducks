@@ -5,20 +5,24 @@ const sortStringArr = (arr, key) => {
 }
 
 const renderSelect = () => {
-    sortingDiv.innerHTML = `
-    <div class="selectdiv">
-        <label for="sorting" class="text-start form-label">Sort by</label> 
-        <select class="form-select" id="sorting">
-            <option value="unsortered">Unsortered</option>
-            <option value="title">Title(A-Z)</option>
-            <option value="author">Author(A-Z)</option>
-            <option value="rating">Rating</option>
-        </select>
+    console.log("Hej från render select");
+    ulRating.innerHTML += `
+    <div class="text-end mt-0">           
+        <div class="select-div text-start ">
+            <label for="sorting" class="form-label">Sort by</label> 
+            <select class="form-select" id="sorting">
+                <option value="unsortered">Unsortered</option>
+                <option value="title">Title(A-Z)</option>
+                <option value="author">Author(A-Z)</option>
+                <option value="rating">Rating</option>
+            </select>
+        </div>
     </div>`
 }
- 
+
 const sortArray = (ratedBooks, ratings) => {
     const select = document.querySelector('#sorting');
+    console.log(select);
     
     select.addEventListener("change", () => {
         /* If user chooses unsorted, just render the original arr */ 
@@ -26,7 +30,7 @@ const sortArray = (ratedBooks, ratings) => {
 
         if(select.value === "title") {
 
-            sortedArr = sortStringArr(ratedBooks, "title")
+            sortedArr = sortStringArr([ratedBooks], "title")
 
         } else if(select.value === "author") {
 
