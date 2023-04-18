@@ -4,6 +4,7 @@ const ulRating = booksWrapper.querySelector("#rated")
 let booksArr;
 let usersRatedBooks;
 let tbr;
+let ratings;
 
 /**
 * @param {array} arr - strapi array of book objects
@@ -24,8 +25,7 @@ const renderBooks = async(arr, heading, ul) => {
     ul.prepend(h2)
 
     if(heading === "Rated") {
-        console.log("hejsan från if");
-        renderSelect()
+        renderSelect(arr)
     }
 
     /* If passed in array contians no books - display message */
