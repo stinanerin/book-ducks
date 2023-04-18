@@ -7,7 +7,7 @@ const sortStringArr = (arr, key) => {
 const renderSelect = () => {
     console.log("Hej från render select");
     ulRating.innerHTML += `
-    <div class="text-end mt-0">           
+    <div class="text-sm-end mt-0 px-sm-5 ">           
         <div class="select-div text-start ">
             <label for="sorting" class="form-label">Sort by</label> 
             <select class="form-select" id="sorting">
