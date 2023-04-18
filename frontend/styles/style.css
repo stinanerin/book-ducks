@@ -15,7 +15,7 @@
   }
   body {
     font-family: system-ui;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -24,11 +24,8 @@
     height: 100%;
   }
   main {
-    padding: 0 1rem;
-  }
-  .main {
-    max-width: 33rem;
-    margin: auto;
+    margin-inline: auto;
+    width: min(80%, 70.5rem);
   }
   .hidden {
     display: none;
@@ -42,12 +39,12 @@
     font-weight: 500;
     border-radius: 50px;
     border: none;
-    font-size: 0.8rem;
   }
   .primary-btn.primary-btn, .secondary-btn.primary-btn {
     padding: 0.8rem 1.5rem;
   }
   .primary-btn.secondary-btn, .secondary-btn.secondary-btn {
+    font-size: 0.7rem;
     padding: 0.5rem 1rem;
   }
   input:not(input[type=radio]), input:active:not(input[type=radio]), input:focus:not(input[type=radio]),
@@ -55,7 +52,6 @@ input:-webkit-autofill:not(input[type=radio]),
 input:-webkit-autofill:focus:not(input[type=radio]),
 input:-webkit-autofill:active:not(input[type=radio]), select:not(input[type=radio]) {
     border-radius: 50px;
-    padding: 0.8rem 1.5rem;
     border: none;
     -webkit-appearance: none;
     appearance: none;
@@ -69,6 +65,12 @@ input:-webkit-autofill:focus:not(input[type=radio])::placeholder,
 input:-webkit-autofill:active:not(input[type=radio])::placeholder, select:not(input[type=radio])::placeholder {
     font-weight: 600;
     font-family: system-ui;
+  }
+  input:not(input[type=radio]):not(select), input:active:not(input[type=radio]):not(select), input:focus:not(input[type=radio]):not(select),
+input:-webkit-autofill:not(input[type=radio]):not(select),
+input:-webkit-autofill:focus:not(input[type=radio]):not(select),
+input:-webkit-autofill:active:not(input[type=radio]):not(select), select:not(input[type=radio]):not(select) {
+    padding: 0.8rem 1.5rem;
   }
   input:active, input:focus, input:-webkit-autofill:focus, input:-webkit-autofill:active, select:hover {
     box-shadow: 0 0 1em 0.2em hsla(0deg, 0%, 100%, 0.491);
@@ -112,6 +114,13 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder, select:not(in
   .form-text {
     padding-left: 1.5rem;
   }
+  form {
+    max-width: 33rem;
+    margin: auto;
+  }
+  form h2 {
+    margin-bottom: 1em;
+  }
   header {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.119) 0%, rgba(255, 255, 255, 0) 100%);
     height: 150px;
@@ -154,6 +163,29 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder, select:not(in
     font-weight: 100;
     font-size: 1rem;
   }
+  .books-grid li .book-info div {
+    width: 50%;
+  }
+  @media (width >= 450px) {
+    .books-grid li .book-info div {
+      width: 35%;
+    }
+  }
+  @media (width >= 576px) {
+    .books-grid li .book-info div {
+      width: 50%;
+    }
+  }
+  @media (width >= 768px) {
+    .books-grid li .book-info div {
+      width: 75%;
+    }
+  }
+  @media (width >= 992px) {
+    .books-grid li .book-info div {
+      width: 60%;
+    }
+  }
   .books-grid .book-rating label {
     padding: 5px;
   }
@@ -166,11 +198,16 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder, select:not(in
     display: none;
   }
   .selectdiv {
-    position: relative;
     display: inline-block;
+    position: relative;
+    /* ARROW DROPDOWN */
+  }
+  .selectdiv label {
+    padding-left: 1rem;
   }
   .selectdiv select {
-    padding-left: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
     display: inline-block;
   }
   .selectdiv:after {
@@ -178,8 +215,12 @@ input:-webkit-autofill:active:not(input[type=radio])::placeholder, select:not(in
     font-weight: 900;
     content: "\f107";
     position: absolute;
-    top: 36px;
-    right: 22px;
+    top: 2.2rem;
+    right: 1rem;
+    font-size: 0.6rem;
+  }
+  .fa-circle {
+    font-size: 0.2rem;
   }
   body.minimalist {
     background: #eae1d4; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */

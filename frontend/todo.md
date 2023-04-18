@@ -8,3 +8,5 @@
 <!-- * finish rating - bug with clicked stars -->
 
 * if a user markes a tbr book as rated move it up directly
+
+* fixa tbr kanpp så plsuset ej wrappar

@@ -18,6 +18,23 @@
             font-weight: 100;
             font-size: 1rem;
         }
+        .book-info {
+            div {
+                width: 50%;
+                @media($xs) {
+                    width: 35%;
+                }
+                @media($sm) {
+                    width: 50%;
+                }
+                @media($md) {
+                    width: 75%;
+                }
+                @media($lg) {
+                    width: 60%;
+                }
+            }
+        }
     }
 
     /* stars */
@@ -35,21 +52,26 @@
         }
     }
 }
-
 .selectdiv {
-    position: relative;
     display: inline-block;
+    position: relative;
+    label {
+        padding-left: 1rem;
+    }
     select {
-        padding-left: 1.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
         display: inline-block;
     }
+    /* ARROW DROPDOWN */
     &:after {
         font-family: 'Font Awesome\ 5 Free';
         font-weight: 900;
         content: "\f107";
         position: absolute;
-        top: 36px;
-        right: 22px;
+        top: 2.2rem;
+        right: 1rem;
+        font-size: 0.6rem;
     }
     // &:focus {
     //     &:after {
@@ -59,4 +81,7 @@
     //         transform: rotate(90deg);
     //     }
     // }
+}
+.fa-circle {
+    font-size: 0.2rem;
 }

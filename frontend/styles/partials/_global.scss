@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6, label {
 }
 body {
     font-family: $body;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -27,13 +27,11 @@ body {
 html {
     height: 100%;
 }
-main {
-    padding: 0 1rem;
+main {    
+    margin-inline: auto;
+    width: min(80%, 70.5rem);
 }
-.main {
-    max-width: 33rem;
-    margin: auto;
-}
+
 .hidden {
     display: none;
 }
@@ -46,11 +44,11 @@ main {
     font-weight: 500;
     border-radius: $radius-max;
     border: none;
-    font-size: 0.8rem;
     &.primary-btn {
         padding: 0.8rem 1.5rem;
     }
     &.secondary-btn {
+        font-size: 0.7rem;
         padding: 0.5rem 1rem;
     }
 }
