@@ -2,7 +2,7 @@
 let selectValue = "unsortered";
 
 const renderSelect = (ratedBooks) => {
-    ulRating.innerHTML += `
+    ul.innerHTML += `
     <div class="text-sm-end mt-0 px-sm-5" id="sortingDiv">           
         <div class="select-div text-start ">
             <label for="sorting" class="form-label">Sort by</label> 
@@ -14,7 +14,7 @@ const renderSelect = (ratedBooks) => {
             </select>
         </div>
     </div>`
-    const options = ulRating.querySelectorAll("option");
+    const options = ul.querySelectorAll("option");
     /* Throws the selected attribute on the most recently choosen option, 
     since it is rerendered in every sort as of now - spread operator as it is node list to begin with */
     [...options].find(option => option.value == selectValue) ? [...options].find(option => option.value == selectValue).selected = true: ""
@@ -46,7 +46,7 @@ const sortArray = (ratedBooks) => {
             sortedArr.sort((a, b) => a.id - b.id);
         }
 
-        renderBooks(sortedArr, "Rated", ulRating)
+        renderBooks(sortedArr, "Rated")
     })
 }
 

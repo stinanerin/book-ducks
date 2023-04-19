@@ -16,6 +16,7 @@ const forms  = document.querySelector('#formWrapper'),
     confPwd = document.querySelector("#pwdConf"),
     passwordAlert = document.querySelector("#passwordAlert"),
     logoutWrapper = document.querySelector("#logout"),
+    btnWrapper = document.querySelector("#btnWrapper"),
     formHelpers = document.querySelectorAll(".form-text");
 
 // ----------------------- TOGGLE BETWEEN REGISTER / LOGIN VIEW -----------------------

@@ -1,5 +1,6 @@
 const booksWrapper = document.querySelector("#booksWrapper")
-const ulRating = booksWrapper.querySelector("#rated")
+// const ulRating = booksWrapper.querySelector("#rated")
+const ul = booksWrapper.querySelector("#books")
 
 let booksArr;
 let usersRatedBooks;
@@ -12,13 +13,13 @@ let ratings;
 * @param {number} ul - the ul the book list should be appended in
 */ 
 
-const renderBooks = async(arr, heading, ul) => {
-    if(!ul) {
-        ul = document.querySelector('#books');
-    }
+const renderBooks = async(arr, heading) => {
+    // if(!ul) {
+    //     ul = document.querySelector('#books');
+    // }
 
     ul.innerHTML = ""
-    ulRating.innerHTML = ""
+    // ulRating.innerHTML = ""
 
     const h2 = createElement("h2", "my-5")
     h2.innerText = heading

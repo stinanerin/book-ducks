@@ -5,7 +5,7 @@ fetchClrTheme()
 // ----------------------- HEADER LOGO BUTTON -----------------------
 document.querySelector("#startPage").addEventListener("click", () => {
   removeClass([booksWrapper], "hidden")
-  addClass([forms], "hidden")
+  addClass([forms, btnWrapper], "hidden")
   renderBooks(booksArr, "Books")
 })
 
