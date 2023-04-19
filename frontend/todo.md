@@ -2,6 +2,7 @@
 ### Todo -inlämning
 * error hantering 
 * färgerna
+* ta bort console.loggar
 
 
 
