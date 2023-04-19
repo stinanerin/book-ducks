@@ -34,7 +34,8 @@ const addToTbr = async(btn) => {
             bookId: bookID
         })
         const res = await updateTbr(tbr)
-        if(res.status && res.status === 200) {
+        console.log(res);
+        if(res && res.status === 200) {
             btn.innerHTML = `Added <i class="fa-solid fa-check"></i>`
             btn.disabled = true;
         }

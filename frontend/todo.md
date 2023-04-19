@@ -1,17 +1,28 @@
-<!-- * gör så man ej kan lägga till i läs-lista  -->
-* eller taea bk i utloggat läge
-    * hidden är nog ej så bra...?
-* gör så man kan markera en tbr bok som läst?
-<!-- * styla seelct klart -->
-* placera selcet rätt - bestäm och görrr!
 
+### Todo -inlämning
 * error hantering 
+* färgerna
 
 
-### Todo
 
-<!-- * finish rating - bug with clicked stars -->
-
+#### Todo senare
 * if a user markes a tbr book as rated move it up directly
 
-* fixa tbr kanpp så plsuset ej wrappar
+* fixa tbr knaoo så plusset ej wrappar
+
+* create object!! sessionstorage
+
+* gör så man kan markera en tbr bok som läst?
+
+* byta lösen
+
+* ladda upp prfbild
+    * byta prfbild
+
+* byta användarnamn
+
+* gör så att man kan sätta noll i betyg
+
+* lägg till hoover effect på stjärnor
+
+* flytta password check någon annanstans - nu får man password fel medan username syns inte förrän passwords matchar
