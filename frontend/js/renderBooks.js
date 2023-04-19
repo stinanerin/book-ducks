@@ -1,5 +1,5 @@
 const booksWrapper = document.querySelector("#booksWrapper")
-const ulRating = booksWrapper.querySelector("#rated")
+const ul = booksWrapper.querySelector("#books")
 
 let booksArr;
 let usersRatedBooks;
@@ -12,13 +12,9 @@ let ratings;
 * @param {number} ul - the ul the book list should be appended in
 */ 
 
-const renderBooks = async(arr, heading, ul) => {
-    if(!ul) {
-        ul = document.querySelector('#books');
-    }
+const renderBooks = async(arr, heading) => {
 
     ul.innerHTML = ""
-    ulRating.innerHTML = ""
 
     const h2 = createElement("h2", "my-5")
     h2.innerText = heading
@@ -26,6 +22,14 @@ const renderBooks = async(arr, heading, ul) => {
 
     if(heading === "Rated") {
         renderSelect(arr)
+
+        const options = ul.querySelectorAll("option");
+        /* Throws the selected attribute on the most recently choosen option, 
+        since it is rerendered in every sort as of now.
+        Spread operator is used as it is node list to begin with */
+        const currentOption = [...options].find(option => option.value == selectValue)
+        currentOption.selected = true
+        arr = sortArrByValue(currentOption.value, arr)
     }
 
     /* If passed in array contians no books - display message */
@@ -70,7 +74,7 @@ const renderBooks = async(arr, heading, ul) => {
         `
         ul.append(li)
 
-        // todo bryt ut?
+        // todo! bryt ut?
         /* If user is logged in - renders stars & tbr btn */
         if(loggedInUser) {
             li.querySelector(".book-rating").innerHTML = `

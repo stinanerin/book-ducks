@@ -4,7 +4,7 @@
 };
 
 @mixin color-theme($text, $details) {
-    h1,h2,h3,h4,h5,h6, p, label, i, .primary-btn, .secondary-btn, .form-text,
+    h1,h2,h3,h4,h5,h6, p, label, i, .primary-btn, .secondary-btn, button, .form-text,
     input:active, input:focus, 
     input:-webkit-autofill, 
     input:-webkit-autofill:focus,

@@ -2,7 +2,7 @@
 let selectValue = "unsortered";
 
 const renderSelect = (ratedBooks) => {
-    ulRating.innerHTML += `
+    ul.innerHTML += `
     <div class="text-sm-end mt-0 px-sm-5" id="sortingDiv">           
         <div class="select-div text-start ">
             <label for="sorting" class="form-label">Sort by</label> 
@@ -14,39 +14,16 @@ const renderSelect = (ratedBooks) => {
             </select>
         </div>
     </div>`
-    const options = ulRating.querySelectorAll("option");
-    /* Throws the selected attribute on the most recently choosen option, 
-    since it is rerendered in every sort as of now - spread operator as it is node list to begin with */
-    [...options].find(option => option.value == selectValue) ? [...options].find(option => option.value == selectValue).selected = true: ""
-
-     /* Iniates event listener for select */
-     sortArray(ratedBooks)
+    
+    /* Iniates event listener for select */
+    handleSorting(ratedBooks)
 }
 
-const sortArray = (ratedBooks) => {
+const handleSorting = (ratedBooks) => {
     document.querySelector('#sorting').addEventListener("change", (e) => {
         selectValue = e.target.value
-
-        let sortedArr = ratedBooks
-
-        if(selectValue === "title") {
-            sortedArr = sortStringArr(sortedArr, "title")
-
-        } else if(selectValue === "author") {
-
-            sortedArr = sortStringArr(sortedArr, "author") 
-
-        } else if(selectValue === "rating") {
-            
-            sortedArr = ratings.sort(({rating: a}, {rating: b}) => b - a)
-                .map(rating => booksArr.find(book => +book.id === +rating.bookId))
-                .filter(book => book !== undefined)
-        
-        } else {
-            sortedArr.sort((a, b) => a.id - b.id);
-        }
-
-        renderBooks(sortedArr, "Rated", ulRating)
+        const arr = sortArrByValue(selectValue, ratedBooks)
+        renderBooks(arr, "Rated")
     })
 }
 
@@ -58,4 +35,27 @@ const sortStringArr = (arr, key) => {
     return [...arr].sort(({attributes: a}, {attributes : b}) => {
         return a[key].localeCompare(b[key])
     })
+}
+
+const sortArrByValue = (selectValue, arr) => {
+    let sortedArr = arr
+
+    if(selectValue === "title") {
+        sortedArr = sortStringArr(sortedArr, "title")
+
+    } else if(selectValue === "author") {
+
+        sortedArr = sortStringArr(sortedArr, "author") 
+
+    } else if(selectValue === "rating") {
+        
+        sortedArr = ratings.sort(({rating: a}, {rating: b}) => b - a)
+            .map(rating => booksArr.find(book => +book.id === +rating.bookId))
+            .filter(book => book !== undefined)
+    
+    } else {
+        sortedArr.sort((a, b) => a.id - b.id);
+    }
+    return sortedArr
+
 }

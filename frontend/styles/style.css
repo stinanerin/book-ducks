@@ -226,7 +226,7 @@ input:-webkit-autofill:active:not(input[type=radio]):not(select), select:not(inp
     background: #B8C6DB; /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #B8C6DB, #e5e9ef, #B8C6DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
-  body.minimalist h1, body.minimalist h2, body.minimalist h3, body.minimalist h4, body.minimalist h5, body.minimalist h6, body.minimalist p, body.minimalist label, body.minimalist i, body.minimalist .primary-btn, body.minimalist .secondary-btn, body.minimalist .form-text,
+  body.minimalist h1, body.minimalist h2, body.minimalist h3, body.minimalist h4, body.minimalist h5, body.minimalist h6, body.minimalist p, body.minimalist label, body.minimalist i, body.minimalist .primary-btn, body.minimalist .secondary-btn, body.minimalist button, body.minimalist .form-text,
 body.minimalist input:active, body.minimalist input:focus,
 body.minimalist input:-webkit-autofill,
 body.minimalist input:-webkit-autofill:focus,
@@ -258,7 +258,7 @@ body.minimalist input:-webkit-autofill:active, body.minimalist select {
     background: #000031; /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #000031, #1d1855, #000031); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
-  body.midnight h1, body.midnight h2, body.midnight h3, body.midnight h4, body.midnight h5, body.midnight h6, body.midnight p, body.midnight label, body.midnight i, body.midnight .primary-btn, body.midnight .secondary-btn, body.midnight .form-text,
+  body.midnight h1, body.midnight h2, body.midnight h3, body.midnight h4, body.midnight h5, body.midnight h6, body.midnight p, body.midnight label, body.midnight i, body.midnight .primary-btn, body.midnight .secondary-btn, body.midnight button, body.midnight .form-text,
 body.midnight input:active, body.midnight input:focus,
 body.midnight input:-webkit-autofill,
 body.midnight input:-webkit-autofill:focus,
