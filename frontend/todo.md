@@ -1,15 +1,6 @@
 
-### Todo -inlämning
-* error hantering 
-* färgerna
-* ta bort console.loggar
-
-
-
 #### Todo senare
 * dynamiskt color theme
-
-* if a user markes a tbr book as rated move it up directly
 
 * fixa tbr knaoo så plusset ej wrappar
 
@@ -39,3 +30,5 @@
 * gör så att om man klickar på redan ifylld stjärna behöver inte all kod köras igen
 
 * gör så hela ul:en inte blir rerendered varje change - selecten ska inte behövas skrivas om på nytt
+
+* bryt ut funktionen på account sidan fetchingen samt filtreringen 
