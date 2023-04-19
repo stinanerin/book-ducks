@@ -31,7 +31,8 @@ const addRating = async(newRating, bookId) => {
 
         return updateRating(arr, bookId)
     } catch (error) {
-        console.log(error);
+        console.log("Error adding rating:", error);
+        alert("Unable to add rating. Please try again later.");
     }
 }
 
@@ -52,7 +53,8 @@ const updateRating = async(arr, bookId) => {
         )
         return res.data.data.attributes.rating
     } catch (error) {
-        console.log(error);
+        console.log("Error updating rating:", error);
+        alert("Unable to update rating. Please try again later.");
     }
 }
 
@@ -82,8 +84,9 @@ const addUsersRatings = async(newRating, id) => {
         })
 
         updateUsersRatings(arr)
-    } catch(err) {
-        console.log(err);
+    } catch(error) {
+        console.log("Error adding user rating:", error);
+        alert("Unable to add user rating. Please try again later.");
     }
 }
 
@@ -101,9 +104,9 @@ const updateUsersRatings = async(arr) => {
                 },
             }
         )
-    } catch(err) {
-        //todo
-        console.log(err);
+    } catch(error) {
+        console.log("Error updating user ratings:", error);
+        alert("Unable to update user ratings. Please try again later.");
     }
 }
 

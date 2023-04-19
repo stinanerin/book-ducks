@@ -9,7 +9,6 @@ document.querySelector("#startPage").addEventListener("click", () => {
   renderBooks(booksArr, "Books")
 })
 
-
 const fetchActiveUser = async() => {
     try {
         return res = await axios.get("http://localhost:1337/api/users/me?populate=*",
