@@ -3,10 +3,12 @@ const starRating = (wrapper) => {
     stars.forEach((star, index, arr) => 
         star.addEventListener('click', async() => {
             /* Changes stars directly on the DOM */
-            //todo move so it only happens after I have ydated users in strapi - hamronize dataflow?
-            activateStarsUpToIndex(index, arr)
+
             /* Adds the book rating to the specifik book's rating component list - and removes user old rating for the same book if necessary */
             const updatedRatingsArr = await addRating(star.value, wrapper.dataset.id)
+            /* If the rating ahs been succesfully updated - show the new clicked star in the DOM */
+            updatedRatingsArr && activateStarsUpToIndex(index, arr)
+
             /* Updates the DOM with the book's new avg rating */
             wrapper.querySelector(".rating").innerText = avgRating(updatedRatingsArr)
             /* Adds the book rating to the users rated books component list - and removes user old rating for the same book if necessary */

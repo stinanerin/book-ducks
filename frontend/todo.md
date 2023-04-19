@@ -35,3 +35,4 @@
 
 * Add params 
 
+* gör så att om man klickar på redan ifylld stjärna behöver inte all kod köras igen
