@@ -22,9 +22,7 @@ const renderSelect = (ratedBooks) => {
 const handleSorting = (ratedBooks) => {
     document.querySelector('#sorting').addEventListener("change", (e) => {
         selectValue = e.target.value
-
-        const arr = sortArrByValue(e.target.value)
-        console.log(arr);
+        const arr = sortArrByValue(selectValue, ratedBooks)
         renderBooks(arr, "Rated")
     })
 }
@@ -39,8 +37,8 @@ const sortStringArr = (arr, key) => {
     })
 }
 
-const sortArrByValue = (selectValue) => {
-    let sortedArr = ratedBooks
+const sortArrByValue = (selectValue, arr) => {
+    let sortedArr = arr
 
     if(selectValue === "title") {
         sortedArr = sortStringArr(sortedArr, "title")

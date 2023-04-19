@@ -1,5 +1,4 @@
 const booksWrapper = document.querySelector("#booksWrapper")
-// const ulRating = booksWrapper.querySelector("#rated")
 const ul = booksWrapper.querySelector("#books")
 
 let booksArr;
@@ -22,7 +21,7 @@ const renderBooks = async(arr, heading) => {
     ul.prepend(h2)
 
     if(heading === "Rated") {
-        renderSelect()
+        renderSelect(arr)
 
         const options = ul.querySelectorAll("option");
         /* Throws the selected attribute on the most recently choosen option, 
@@ -30,7 +29,7 @@ const renderBooks = async(arr, heading) => {
         Spread operator is used as it is node list to begin with */
         const currentOption = [...options].find(option => option.value == selectValue)
         currentOption.selected = true
-        arr = sortArrByValue(currentOption.value)
+        arr = sortArrByValue(currentOption.value, arr)
     }
 
     /* If passed in array contians no books - display message */
