@@ -19,7 +19,7 @@
         "midnight"
       ],
       "required": true,
-      "default": "minimalist"
+      "default": "midnight"
     }
   }
 }

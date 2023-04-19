@@ -10,7 +10,6 @@ document.querySelector('#account').addEventListener("click", async() => {
         tbr = res.data.tbr
     
         /* Filter global booksArr for the users tbr books IDs - then renders them */
-        //todo break out filter function
         const tbrArr = booksArr.filter(book => tbr.map(book => +book.bookId).includes(book.id))   
         renderBooks(tbrArr, "TBR")
         ratedBooks = booksArr.filter(book => ratings.map(book => +book.bookId).includes(book.id))   

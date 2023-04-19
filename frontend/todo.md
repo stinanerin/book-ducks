@@ -6,6 +6,8 @@
 
 
 #### Todo senare
+* dynamiskt color theme
+
 * if a user markes a tbr book as rated move it up directly
 
 * fixa tbr knaoo så plusset ej wrappar
@@ -26,3 +28,7 @@
 * lägg till hoover effect på stjärnor
 
 * flytta password check någon annanstans - nu får man password fel medan username syns inte förrän passwords matchar
+
+* använd error display message för pwd också
+
+* break out filter function account page
