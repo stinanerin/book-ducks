@@ -37,3 +37,5 @@
 * Add params 
 
 * gör så att om man klickar på redan ifylld stjärna behöver inte all kod köras igen
+
+* gör så hela ul:en inte blir rerendered varje change - selecten ska inte behövas skrivas om på nytt
