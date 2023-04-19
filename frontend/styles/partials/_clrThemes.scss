@@ -1,10 +1,15 @@
 body {
     &.minimalist {
         @include background-theme($primary-gradient...);
+        // text clr & accent clr
         @include color-theme($p-black, $accent-50);
+        @include element-gradient($p-white, $transparent-100);
+
     }
     &.midnight {
         @include background-theme($secondary-gradient...);
+        // text clr & accent clr
         @include color-theme($p-white, $accent-50);
+        @include element-gradient($transparent-50, $transparent-100);
     }
 }

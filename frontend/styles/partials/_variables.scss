@@ -12,37 +12,18 @@ $md: "width >= 768px";
 $lg: "width >= 992px";
 $xl: "width >= 1200px";
 
-
 // Colors
-$primary-300: hsl(28, 100%, 63%);
 
-$accent-800: hsl(333, 100%, 36%);
-$accent-700: hsl(354, 68%, 48%);
-$accent-500: hsl(333, 100%, 58%);
-$accent-300: hsl(352, 96%, 68%);
-$accent-100: hsla(341, 85%, 60%, 0.91);
-$accent-50: #909ec9;
- 
 $p-black: hsl(0, 0%, 0%);
 $p-white: hsl(0, 0%, 100%);
-$t-white: hsla(0, 0%, 100%, 0.491);
 
-$danger-500: hsl(0, 100%, 51%);
-$danger-50: hsl(354, 80%, 76%);
+$transparent-50: rgba(255, 255, 255, 0.46);
+$transparent-100: rgba(253, 253, 253, 0);
 
-
-$green-300: rgb(136, 167, 136);
-$blue-100: rgb(106, 106, 226) ;
-
-$see-through-gradient: linear-gradient(270deg, rgba(255, 255, 255, 0.26) 0%, rgba(249, 241, 241, 0.202) 100%),
-                        -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.66) 0%, rgba(253, 253, 253, 0) 100%);
-
-
-$primary-gradient: #eae1d4, #f6efe2, #eae1d4;    
+$primary-gradient: #B8C6DB, #e5e9ef, #B8C6DB;    
 $secondary-gradient: #000031, #1d1855, #000031;    
 
-$text: $p-white;
-$text-secondary: $p-black;
-$detail: $accent-50;
-$detail-secondary: $accent-500;
+$danger-500: hsl(0, 100%, 51%);
+$danger-50: hsl(354, 72%, 78%);
 
+$accent-50: #909ec9;

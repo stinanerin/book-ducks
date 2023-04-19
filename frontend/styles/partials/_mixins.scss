@@ -1,4 +1,4 @@
-@mixin glow ($color: $t-white) {
+@mixin glow ($color: $transparent-50) {
     box-shadow: 0 0 1em 0.2em $color;
     -webkit-box-shadow: 0 0 1em 0.2em $color; 
 };
@@ -25,7 +25,20 @@
 }
 
 @mixin background-theme($bg-1, $bg-2, $bg-3) {
-    background: $bg-3;  /* fallback for old browsers */
+    /* fallback for old browsers */
+    background: $bg-3;
     background: -webkit-linear-gradient(to right, $bg-1, $bg-2, $bg-3);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, $bg-1, $bg-2, $bg-3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@mixin element-gradient($t-1, $t-2) {
+    input, input:active, input:focus, 
+    input:-webkit-autofill, 
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active, select {
+        /* fallback for old browsers */
+        background: $p-black ;
+        background: linear-gradient(270deg, $t-1 0%, $t-2 100%);
+        background: -webkit-linear-gradient(270deg, $t-1 0%, $t-2 100%);
+    }
 }
