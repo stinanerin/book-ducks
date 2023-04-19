@@ -32,3 +32,6 @@
 * använd error display message för pwd också
 
 * break out filter function account page
+
+* Add params 
+
