@@ -8,7 +8,7 @@ input:-webkit-autofill:active, select {
         border: none;
         -webkit-appearance: none;
         appearance: none; 
-        background: $see-through-gradient;
+        // background: $see-through-gradient;
         font-weight: 600;
         font-family: $body;
         &::placeholder {

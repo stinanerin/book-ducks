@@ -55,7 +55,6 @@ input:-webkit-autofill:active:not(input[type=radio]), select:not(input[type=radi
     border: none;
     -webkit-appearance: none;
     appearance: none;
-    background: linear-gradient(270deg, rgba(255, 255, 255, 0.26) 0%, rgba(249, 241, 241, 0.202) 100%), -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.66) 0%, rgba(253, 253, 253, 0) 100%);
     font-weight: 600;
     font-family: system-ui;
   }
@@ -73,8 +72,8 @@ input:-webkit-autofill:active:not(input[type=radio]):not(select), select:not(inp
     padding: 0.8rem 1.5rem;
   }
   input:active, input:focus, input:-webkit-autofill:focus, input:-webkit-autofill:active, select:hover {
-    box-shadow: 0 0 1em 0.2em hsla(0deg, 0%, 100%, 0.491);
-    -webkit-box-shadow: 0 0 1em 0.2em hsla(0deg, 0%, 100%, 0.491);
+    box-shadow: 0 0 1em 0.2em rgba(255, 255, 255, 0.46);
+    -webkit-box-shadow: 0 0 1em 0.2em rgba(255, 255, 255, 0.46);
   }
   label {
     font-family: "Poppins", sans-serif;
@@ -82,7 +81,7 @@ input:-webkit-autofill:active:not(input[type=radio]):not(select), select:not(inp
     padding-left: 1.5rem;
   }
   .alert-danger {
-    background: hsl(354deg, 80%, 76%);
+    background: hsl(354deg, 72%, 78%);
     border-radius: 50px;
     border-color: hsl(0deg, 100%, 51%);
     padding: 0.8rem 1.5rem;
@@ -223,8 +222,9 @@ input:-webkit-autofill:active:not(input[type=radio]):not(select), select:not(inp
     font-size: 0.2rem;
   }
   body.minimalist {
-    background: #eae1d4; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #eae1d4, #f6efe2, #eae1d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* fallback for old browsers */
+    background: #B8C6DB; /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #B8C6DB, #e5e9ef, #B8C6DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   body.minimalist h1, body.minimalist h2, body.minimalist h3, body.minimalist h4, body.minimalist h5, body.minimalist h6, body.minimalist p, body.minimalist label, body.minimalist i, body.minimalist .primary-btn, body.minimalist .secondary-btn, body.minimalist .form-text,
 body.minimalist input:active, body.minimalist input:focus,
@@ -244,8 +244,18 @@ body.minimalist input:-webkit-autofill:active, body.minimalist .select-div:after
   body.minimalist .active, body.minimalist .fa-star, body.minimalist .link {
     color: #909ec9;
   }
+  body.minimalist input, body.minimalist input:active, body.minimalist input:focus,
+body.minimalist input:-webkit-autofill,
+body.minimalist input:-webkit-autofill:focus,
+body.minimalist input:-webkit-autofill:active, body.minimalist select {
+    /* fallback for old browsers */
+    background: hsl(0deg, 0%, 0%);
+    background: linear-gradient(270deg, hsl(0deg, 0%, 100%) 0%, rgba(253, 253, 253, 0) 100%);
+    background: -webkit-linear-gradient(270deg, hsl(0deg, 0%, 100%) 0%, rgba(253, 253, 253, 0) 100%);
+  }
   body.midnight {
-    background: #000031; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+    /* fallback for old browsers */
+    background: #000031; /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #000031, #1d1855, #000031); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   body.midnight h1, body.midnight h2, body.midnight h3, body.midnight h4, body.midnight h5, body.midnight h6, body.midnight p, body.midnight label, body.midnight i, body.midnight .primary-btn, body.midnight .secondary-btn, body.midnight .form-text,
@@ -265,5 +275,14 @@ body.midnight input:-webkit-autofill:active, body.midnight .select-div:after, bo
   }
   body.midnight .active, body.midnight .fa-star, body.midnight .link {
     color: #909ec9;
+  }
+  body.midnight input, body.midnight input:active, body.midnight input:focus,
+body.midnight input:-webkit-autofill,
+body.midnight input:-webkit-autofill:focus,
+body.midnight input:-webkit-autofill:active, body.midnight select {
+    /* fallback for old browsers */
+    background: hsl(0deg, 0%, 0%);
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.46) 0%, rgba(253, 253, 253, 0) 100%);
+    background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.46) 0%, rgba(253, 253, 253, 0) 100%);
   }
 }/*# sourceMappingURL=style.css.map */
