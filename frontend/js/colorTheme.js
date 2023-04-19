@@ -3,16 +3,13 @@ const fetchClrTheme = async() => {
         const res = await axios.get("http://localhost:1337/api/color-theme?populate=*")
         const selectedTheme = res.data.data.attributes.colorTheme;
         applyTheme(selectedTheme);
-    } catch(err) {
-        console.log(err);
+    } catch(error) {
+        // console.log(error);
+        applyTheme("midnight")
     }
 }
 
 const applyTheme = (theme) => {
     const body = document.querySelector('body');
-    if(theme === "minimalist") {
-       addClass([body], theme)
-    } else if(theme === "midnight") {
-        addClass([body], theme)
-    }
+    addClass([body], theme)
 }

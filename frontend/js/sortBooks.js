@@ -1,3 +1,4 @@
+/* Global variable with default value for filtering of rated books list, as the enitre UL is currently rerendered on each change */
 let selectValue = "unsortered";
 
 const renderSelect = (ratedBooks) => {
@@ -14,7 +15,8 @@ const renderSelect = (ratedBooks) => {
         </div>
     </div>`
     const options = ulRating.querySelectorAll("option");
-    /* Throws the selected attribute on the most recently choosen option, since it is rerendered in every sort as of now */
+    /* Throws the selected attribute on the most recently choosen option, 
+    since it is rerendered in every sort as of now - spread operator as it is node list to begin with */
     [...options].find(option => option.value == selectValue) ? [...options].find(option => option.value == selectValue).selected = true: ""
 
      /* Iniates event listener for select */
@@ -48,6 +50,10 @@ const sortArray = (ratedBooks) => {
     })
 }
 
+/**
+* @param {array}  arr - array of users rated books
+* @param {string}  key - the object key you want to sort the array according to
+*/ 
 const sortStringArr = (arr, key) => {
     return [...arr].sort(({attributes: a}, {attributes : b}) => {
         return a[key].localeCompare(b[key])

@@ -13,19 +13,17 @@ const updateTbr = async(arr) => {
                 },
             }
         )
-    } catch(err) {
-        //todo
-        console.log(err);
+    } catch(error) {
+        console.log("Error updating tbr: ", error);
+        alert("Failed to update TBR list. Please try again later.")
     }
 }
+
 /* Function which is run when the "want to read" btn is clicked */
 const addToTbr = async(btn) => {
     const bookID = btn.closest("li").dataset.id
-    console.log(bookID);
     const res = await fetchActiveUser()
-    console.log(res);
     const tbr = res.data.tbr
-    console.log(tbr);
     if(tbr.find(book => book.bookId === bookID)) {
         /* If user were to remove disabled attribute from clicked btn and click again - the btn is remvoed from the DOM  */
         btn.remove()
@@ -34,7 +32,7 @@ const addToTbr = async(btn) => {
             bookId: bookID
         })
         const res = await updateTbr(tbr)
-        if(res.status && res.status === 200) {
+        if(res && res.status === 200) {
             btn.innerHTML = `Added <i class="fa-solid fa-check"></i>`
             btn.disabled = true;
         }

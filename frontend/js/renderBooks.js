@@ -115,9 +115,9 @@ const fetchBooks = async() => {
         /* Assings strapi bookArr to globally available variable */
         booksArr = res.data.data
         renderBooks(booksArr, "Books")
-    } catch(err) {
-        //todo
-        console.log(err);
+    } catch(error) {
+        console.log("Error fetching books: ", error);
+        alert("Oops, something went wrong while fetching the books. Please try again later.");
     }
 }
 
